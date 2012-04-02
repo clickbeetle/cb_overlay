@@ -1,0 +1,20 @@
+# Jean-Francis Roy (20 Mar 2012)
+# udev-182 removed some feature that is now taken care of in consolekit.
+# Masking the latest version of consolekit as it depends on >=udev-182.
+# See b.g.o. 408713
+>=sys-auth/consolekit-0.4.5-r3
+
+# Oleg Vinichenko (19 Jan 2012)
+# udev-177 is not ready for daily usage
+# for adventurous ones!
+=sys-fs/udev-177
+
+# DO NOT USE this one the ebuild does not include kernel revision dependencies (>= 2.6.38 REQUIRED) and it can affect many of our users 
+# See bug #359445
+=net-wireless/iwl5000-ucode-8.83.5.1
+
+
+# Daniel Robbins <drobbins@funtoo.org> (02 Aug 2009)
+# let's watch upstream bugs for a bit:
+#>=dev-lang/python-3
+
