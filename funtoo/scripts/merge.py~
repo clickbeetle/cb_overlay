@@ -61,9 +61,9 @@ for d in dest:
 		runShell("( cd %s; git init )" % d )
 		runShell("echo 'created by merge.py' > %s/README" % d )
 		runShell("( cd %s; git add README; git commit -a -m 'initial commit by merge.py' )" % d )
-		runShell("( cd %s; git checkout -b master; git rm -f README; git commit -a -m 'initial clickbeetle.in commit' )" % ( d ) )
+		runShell("( cd %s; git checkout -b funtoo.org; git rm -f README; git commit -a -m 'initial funtoo.org commit' )" % ( d ) )
 		print("Pushing disabled automatically because repository created from scratch.")
 		push = False
 	prod = UnifiedTree(d,steps)
 	prod.run()
-	prod.gitCommit(message="glorious clickbeetle updates",push=push)
+	prod.gitCommit(message="glorious funtoo updates",push=push)

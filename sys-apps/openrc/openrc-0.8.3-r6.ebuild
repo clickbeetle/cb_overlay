@@ -27,7 +27,7 @@ RDEPEND="kernel_linux? ( >=sys-apps/sysvinit-2.86-r11 )
 DEPEND="ncurses? ( sys-libs/ncurses ) pam? ( virtual/pam ) virtual/os-headers"
 
 GITHUB_REPO="${PN}"
-GITHUB_USER="funtoo"
+GITHUB_USER="clickbeetle"
 GITHUB_TAG="funtoo-openrc-0.8.3"
 
 NETV="1.3-r1"

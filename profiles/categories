@@ -27,7 +27,6 @@ net-print
 net-www
 sys-apps
 sys-auth
-sys-boot
 sys-cluster
 sys-devel
 sys-fs

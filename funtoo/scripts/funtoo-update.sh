@@ -29,7 +29,7 @@ final=/var/git/portage-prod
 mini=/var/git/portage-mini-2010
 
 src=`pwd`
-desttree="funtoo.org"
+desttree="master"
 
 die() {
 	echo $*
