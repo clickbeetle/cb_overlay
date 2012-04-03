@@ -3,7 +3,7 @@
 from merge_utils import *
 
 gentoo_src = Tree("gentoo","gentoo.org", "git://github.com/funtoo/portage.git", pull=True, trylocal="/var/git/portage-gentoo")
-funtoo_overlay = Tree("funtoo-overlay", branch, "git://github.com/clickbeetle/cb_overlay.git", pull=True)
+funtoo_overlay = Tree("cb-overlay", branch, "git://github.com/clickbeetle/cb_overlay.git", pull=True)
 foo_overlay = Tree("foo-overlay", "master", "https://github.com/slashbeast/foo-overlay.git", pull=True)
 bar_overlay = Tree("bar-overlay", "master", "git://github.com/adessemond/bar-overlay.git", pull=True)
 flora_overlay = Tree("flora", "master", "git://github.com/funtoo/flora.git", pull=True)

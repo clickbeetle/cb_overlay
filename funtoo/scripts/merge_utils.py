@@ -373,7 +373,7 @@ args = parser.parse_args()
 if args.nopush:
 	push = False
 else:
-	push = "origin funtoo.org"
+	push = "origin master"
 
 dest = args.destination
 for d in dest:
