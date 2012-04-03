@@ -59,7 +59,4 @@
 # Oleg Vinichenko (24 July)
 =app-backup/rsnapshot-1.3.1-r2
 
-# Daniel Robbins (30 May 2011)
-# masked for testing
-=sys-boot/grub-1.99
 
