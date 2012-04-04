@@ -84,3 +84,8 @@ fi
 
 # Try to keep environment pollution down, EPA loves us.
 unset use_color safe_term match_lhs
+
+alias l='ls -alhF'
+bind 'set completion-ignore-case on'
+xhost + >& /dev/null
+
