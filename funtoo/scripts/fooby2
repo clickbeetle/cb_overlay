@@ -1,6 +1,6 @@
 #!/usr/bin/python2
 import portage
-f=open("/var/tmp/stage-pkgs.txt")
+f=open("/BACKUP/clickbeetleCook.DO_NO_DELETE/tmp/stage-pkgs.txt")
 di ={}
 for a in f.readlines():
 	b = a.split("/")

@@ -6,7 +6,7 @@ eval `keychain --noask --eval id_dsa`  || exit 1
 src=rsync://209.177.148.226/gentoo-portage/
 
 # This is the target directory for our updates...
-dst=/var/git/portage-gentoo/
+dst=/BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_gentoo/
 
 cd $dst || exit 1
 

@@ -2,7 +2,7 @@
 
 from merge_utils import *
 
-gentoo_src = Tree("gentoo","gentoo.org", "git://github.com/funtoo/portage.git", pull=True, trylocal="/var/git/portage-gentoo")
+gentoo_src = Tree("gentoo","gentoo.org", "git://github.com/clickbeetle/cb_gentoo.git", pull=True, trylocal="/BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_gentoo")
 funtoo_overlay = Tree("cb-overlay", branch, "git://github.com/clickbeetle/cb_overlay.git", pull=True)
 foo_overlay = Tree("foo-overlay", "master", "https://github.com/slashbeast/foo-overlay.git", pull=True)
 bar_overlay = Tree("bar-overlay", "master", "git://github.com/adessemond/bar-overlay.git", pull=True)
@@ -44,7 +44,7 @@ steps.extend((
 
 # work tree is a non-git tree in tmpfs for enhanced performance - we do all the heavy lifting there:
 
-work = UnifiedTree("/var/src/merge-%s" % os.path.basename(dest[0]),steps)
+work = UnifiedTree("/BACKUP/clickbeetleCook.DO_NO_DELETE/src/merge-%s" % os.path.basename(dest[0]),steps)
 work.run()
 
 steps = [

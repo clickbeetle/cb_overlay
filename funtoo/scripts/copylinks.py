@@ -6,7 +6,7 @@ within funtoo-overlay. It is designed to be run from the root of the funtoo
 overlay, with the root of the gentoo portage tree passed as a first argument:
 
 # cd /root/git/funtoo-overlay
-# funtoo/scripts/copylinks.py /var/git/portage-gentoo
+# funtoo/scripts/copylinks.py /BACKUP/clickbeetleCook.DO_NO_DELETE/git/portage-gentoo
 
 Then, all broken 01-gentoo symlinks will no longer be broken, as the source
 files will now exist in funtoo-overlay.

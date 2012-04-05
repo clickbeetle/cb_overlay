@@ -2,7 +2,7 @@
 
 from merge_utils import *
 
-funtoo_src = Tree("funtoo","funtoo.org", "git://github.com/funtoo/portage-mini-2011.git", pull=True, trylocal="/var/git/portage-mini-2011")
+funtoo_src = Tree("funtoo","funtoo.org", "git://github.com/funtoo/portage-mini-2011.git", pull=True, trylocal="/BACKUP/clickbeetleCook.DO_NO_DELETE/git/portage-mini-2011")
 
 pf = open("stage3.txt","r")
 pkgs = []
@@ -16,6 +16,6 @@ steps = [
 	InsertEbuilds(funtoo_src, select=pkgs)
 ]
 
-sys = UnifiedTree("/var/git/portage-system",steps)
+sys = UnifiedTree("/BACKUP/clickbeetleCook.DO_NO_DELETE/git/portage-system",steps)
 sys.run()
 

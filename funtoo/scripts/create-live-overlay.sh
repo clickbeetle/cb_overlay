@@ -10,7 +10,7 @@
 # ebuilds that exists in both the funtoo and gentoo trees will be *removed*
 # from the Gentoo tree.
 
-dest=${portage_gentoo:-/var/tmp/git/portage-gentoo-overlay}
+dest=${portage_gentoo:-/BACKUP/clickbeetleCook.DO_NO_DELETE/tmp/git/portage-gentoo-overlay}
 
 src=$(readlink -f $(dirname $0)/../../)
 

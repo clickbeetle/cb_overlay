@@ -7,7 +7,7 @@ import shutil
 
 debug = False
 
-mergeLog = open("/var/tmp/merge.log","w")
+mergeLog = open("/BACKUP/clickbeetleCook.DO_NO_DELETE/tmp/merge.log","w")
 
 def headSHA1(tree):
 	head = None
@@ -153,7 +153,7 @@ class Tree(object):
 			base = os.path.basename(self.trylocal)
 			self.root = trylocal
 		else:
-			base = "/var/git/source-trees"
+			base = "/BACKUP/clickbeetleCook.DO_NO_DELETE/git/source-trees"
 			self.root = "%s/%s" % ( base, self.name )
 		if not os.path.exists(base):
 			os.makedirs(base)
@@ -188,7 +188,7 @@ class SvnTree(object):
 			base = os.path.basename(self.trylocal)
 			self.root = trylocal
 		else:
-			base = "/var/svn/source-trees"
+			base = "/BACKUP/clickbeetleCook.DO_NO_DELETE/svn/source-trees"
 			self.root = "%s/%s" % (base, self.name)
 		if not os.path.exists(base):
 			os.makedirs(base)

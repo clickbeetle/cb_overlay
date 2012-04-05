@@ -24,9 +24,9 @@ eval `keychain --noask --eval id_dsa`  || exit 1
 # to the funtoo tree. This commit can then be reviewed, and manually
 # pushed up to github.com so other users can grab it via emerge --sync.
 
-dest=/var/git/portage-gentoo
-final=/var/git/portage-prod
-mini=/var/git/portage-mini-2010
+dest=/BACKUP/clickbeetleCook.DO_NO_DELETE/git/portage-gentoo
+final=/BACKUP/clickbeetleCook.DO_NO_DELETE/git/portage-prod
+mini=/BACKUP/clickbeetleCook.DO_NO_DELETE/git/portage-mini-2010
 
 src=`pwd`
 desttree="master"
