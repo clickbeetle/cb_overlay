@@ -4,7 +4,7 @@
 
 EAPI=3
 
-inherit eutils
+inherit eutils pam
 
 DESCRIPTION="PAM base configuration files"
 HOMEPAGE="http://www.gentoo.org/proj/en/base/pam/"
