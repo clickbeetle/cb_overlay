@@ -10,5 +10,5 @@ die() {
 cd /BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_overlay || die "couldn't chdir"
 git pull
 ./funtoo/scripts/gentoo-update.sh || die "gentoo update failed"
-./funtoo/scripts/merge.py /home/shrinidhi/bin/gitHub/cb_ports || die "funtoo update failed"
+./funtoo/scripts/merge.py /BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports || die "funtoo update failed"
 rm -f /BACKUP/clickbeetleCook.DO_NO_DELETE/tmp/.regen_running
