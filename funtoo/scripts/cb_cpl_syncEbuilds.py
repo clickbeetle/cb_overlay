@@ -2,6 +2,8 @@
 
 import os
 import sys
+from merge_utils import *
+
 
 branch = sys.argv[1].rstrip().lstrip()
 print branch
@@ -14,7 +16,8 @@ if(len(progPath) > 1):
 else:
   cwd = os.getcwd()
   
-ebFile = os.open(cwd +"/cb_cpl.studio","r")
+ebFile = os.open(cwd +"/cb_cpl."+ branch,"r")
+
   # if [ ! $1 ]; then
 #   echo "please provide a branch name to update to the latest cb_ports"
 #   exit 1
