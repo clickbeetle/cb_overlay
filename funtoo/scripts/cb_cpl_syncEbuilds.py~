@@ -14,10 +14,8 @@ if(len(progPath) > 1):
 else:
   cwd = os.getcwd()
   
-eBuildList = []
+  
 ebFile = open(cwd +"/cb_cpl."+ branch,"r")
-for ebl in ebFile.readlines():
-  eBuildList.append(ebl.rstrip().lstrip())
 
 print cwd +"/cb_cpl."+ branch
 
@@ -27,14 +25,19 @@ print cwd +"/cb_cpl."+ branch
 
 cb_ports = Tree("gentoo","master", "git://github.com/clickbeetle/cb_ports.git", pull=True, trylocal="/BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports")
 
-for ebl in eBuildList:
-  
-  
 
 steps = [
+  SyncTree(cb_ports,exclude=["/metadata/cache/**","ChangeLog"]),
+  ThirdPartyMirrors(),
+  ProfileDepFix(),
+  SyncDir(cb_ports.root,"eclass"),
+  InsertEbuilds(cb_ports, select="all", skip=None, replace=True, merge=eBuildList),
+]
+
+steps.extend((
   Minify(),
   GenCache()
-]
+))
 
 # work tree is a non-git tree in tmpfs for enhanced performance - we do all the heavy lifting there:
 
