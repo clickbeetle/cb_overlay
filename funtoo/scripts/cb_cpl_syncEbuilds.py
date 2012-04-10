@@ -20,7 +20,7 @@ for ebl in ebFile.readlines():
   eBuildList.append(ebl.rstrip().lstrip())
 
 print cwd +"/cb_cpl."+ branch
-print dest
+print dest[0]
 
 
 
