@@ -48,7 +48,7 @@ work = UnifiedTree("/BACKUP/clickbeetleCook.DO_NO_DELETE/src/merge-%s" % os.path
 work.run()
 
 steps = [
-	GitPrep("master"),
+	GitPrep(branch),
 	SyncTree(work)
 ]
 
