@@ -26,7 +26,7 @@ print dest
 
 
 
-#cb_ports = Tree("gentoo","master", "git://github.com/clickbeetle/cb_ports.git", pull=True, trylocal="/BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports")
+cb_ports = Tree("gentoo","master", "git://github.com/clickbeetle/cb_ports.git", pull=True, trylocal="/BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports")
 
 #for ebl in eBuildList:
   
