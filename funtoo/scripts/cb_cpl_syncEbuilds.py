@@ -34,11 +34,8 @@ cb_ports_locked = Tree("cbl",branch, "git@github.com:clickbeetle/cb_ports_locked
 
 for ebl in eBuildList:
   if(ebl):
-    os.system("mkdir -p "+ dest[0].rstrip("/") + "/" + ebl.rstrip("/").lstrip("/"))
-    os.system("rsync -av "+ cb_ports.root.rstrip("/") + "/" + ebl.rstrip("/").lstrip("/") + "/ "+  dest[0].rstrip("/") + "/" + ebl.rstrip("/").lstrip("/") + "/")
-  
-  
-  
+    os.system("mkdir -p "+ cb_ports_locked.root.rstrip("/") + "/" + ebl.rstrip("/").lstrip("/"))
+    os.system("rsync -av "+ cb_ports.root.rstrip("/") + "/" + ebl.rstrip("/").lstrip("/") + "/ "+  cb_ports_locked.root.rstrip("/") + "/" + ebl.rstrip("/").lstrip("/") + "/")
   
 
 steps = [
