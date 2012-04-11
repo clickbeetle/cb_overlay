@@ -17,6 +17,8 @@ else:
 eBuildList = []
 ebFile = open(cwd +"/cb_cpl."+ branch,"r")
 for ebl in ebFile.readlines():
+  if(ebl.find("#") == 0):
+    continue
   eBuildList.append(ebl.rstrip().lstrip())
 
 print cwd +"/cb_cpl."+ branch
@@ -29,8 +31,9 @@ print dest[0]
 cb_ports = Tree("gentoo","master", "git://github.com/clickbeetle/cb_ports.git", pull=True, trylocal="/BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports")
 
 for ebl in eBuildList:
-  print("mkdir -p "+ dest[0].rstrip("/") + "/" + ebl.rstrip("/").lstrip("/"))
-  print("rsync -av "+ cb_ports.root + "/" + ebl.rstrip("/").lstrip("/") + "/ "+  dest[0].rstrip("/") + "/" + ebl.rstrip("/").lstrip("/") + "/")
+  if(ebl):
+    print("mkdir -p "+ dest[0].rstrip("/") + "/" + ebl.rstrip("/").lstrip("/"))
+    print("rsync -av "+ cb_ports.root.rstrip("/") + "/" + ebl.rstrip("/").lstrip("/") + "/ "+  dest[0].rstrip("/") + "/" + ebl.rstrip("/").lstrip("/") + "/")
   
   
   
