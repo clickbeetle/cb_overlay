@@ -39,20 +39,20 @@ for ebl in eBuildList:
   
   
 
-#steps = [
-  #Minify(),
-  #GenCache()
-#]
+steps = [
+  Minify(),
+  GenCache()
+]
 
 ## work tree is a non-git tree in tmpfs for enhanced performance - we do all the heavy lifting there:
 
-#work = UnifiedTree("/BACKUP/clickbeetleCook.DO_NO_DELETE/src/merge-%s" % os.path.basename(dest[0]),steps)
-#work.run()
+work = UnifiedTree("/BACKUP/clickbeetleCook.DO_NO_DELETE/src/merge-%s" % os.path.basename(dest[0]),steps)
+work.run()
 
-#steps = [
-  #GitPrep(branch),
-  #SyncTree(work)
-#]
+steps = [
+  GitPrep(branch),
+  SyncTree(work)
+]
 
 ## then for the production tree, we rsync all changes on top of our prod git tree and commit:
 
