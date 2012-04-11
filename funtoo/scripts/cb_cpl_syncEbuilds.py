@@ -29,7 +29,8 @@ print dest[0]
 cb_ports = Tree("gentoo","master", "git://github.com/clickbeetle/cb_ports.git", pull=True, trylocal="/BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports")
 
 for ebl in eBuildList:
-  print dest[0].rstrip("/") + "/" + ebl 
+  print("mkdir -p "+ dest[0].rstrip("/") + "/" + ebl.rstrip("/").lstrip("/"))
+  print("rsync -av "+ cb_ports.root + "/" + ebl.rstrip("/").lstrip("/") + "/ "+  dest[0].rstrip("/") + "/" + ebl.rstrip("/").lstrip("/") + "/")
   
   
   
