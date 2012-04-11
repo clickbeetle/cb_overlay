@@ -42,7 +42,7 @@ for ebl in eBuildList:
   
 
 steps = [
-  SyncTree(cb_ports_locked)
+  SyncTree(cb_ports_locked),
   Minify(),
   GenCache()
 ]
