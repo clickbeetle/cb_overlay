@@ -40,6 +40,10 @@ for ebl in eBuildList:
 
 steps = [
   SyncTree(cb_ports_locked),
+  ProfileDepFix(),
+  SyncDir(cb_ports.root,"licenses"),
+  SyncDir(cb_ports.root,"eclass"),
+  SyncDir(cb_ports.root,"metadata"),
   Minify(),
   GenCache()
 ]
