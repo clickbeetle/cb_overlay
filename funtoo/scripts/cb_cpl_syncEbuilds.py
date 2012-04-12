@@ -17,7 +17,6 @@ else:
 eBuildList = []
 ebFile = open(cwd +"/cb_cpl."+ branch,"r")
 for ebl in ebFile.readlines():
-<<<<<<< HEAD
   if(ebl.find("#") == 0):
     continue
   eBuildList.append(ebl.rstrip().lstrip())
@@ -25,40 +24,19 @@ for ebl in ebFile.readlines():
 print cwd +"/cb_cpl."+ branch
 print dest[0]
 
-
-
-
-
 cb_ports = Tree("gentoo","master", "git://github.com/clickbeetle/cb_ports.git", pull=True, trylocal="/BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports")
 cb_ports_locked = Tree("cbl",branch, "git@github.com:clickbeetle/cb_ports_locked.git", pull=True)
-
-  
-
-
-for ebl in eBuildList:
-  print("mkdir -p "+ dest[0].rstrip("/") + "/" + ebl.rstrip("/").lstrip("/"))
-  print("rsync -av "+ cb_ports.root + "/" + ebl.rstrip("/").lstrip("/") + "/ "+ dest[0].rstrip("/") + "/" + ebl.rstrip("/").lstrip("/") + "/")
-  
-  
-  
-  
-  
-  
-
-
 
 for ebl in eBuildList:
   if(ebl):
     os.system("mkdir -p "+ cb_ports_locked.root.rstrip("/") + "/" + ebl.rstrip("/").lstrip("/"))
     os.system("rsync -av "+ cb_ports.root.rstrip("/") + "/" + ebl.rstrip("/").lstrip("/") + "/ "+  cb_ports_locked.root.rstrip("/") + "/" + ebl.rstrip("/").lstrip("/") + "/")
   
-
 steps = [
   SyncTree(cb_ports_locked),
   ProfileDepFix(),
   SyncDir(cb_ports.root,"licenses"),
   SyncDir(cb_ports.root,"eclass"),
-#  SyncDir(cb_ports.root,"metadata"),    #probably we dont need to sync these :( .. well . i have no idea
   Minify(),
   GenCache()
 ]
