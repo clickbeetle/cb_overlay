@@ -2,3 +2,4 @@ dev-libs/libgcrypt static static-libs
 dev-libs/popt static-libs
 dev-libs/libgpg-error static-libs
 sys-fs/cryptsetup static
+sys-apps/util-linux static-libs
