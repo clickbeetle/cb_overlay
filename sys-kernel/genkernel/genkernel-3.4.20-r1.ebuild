@@ -6,7 +6,7 @@
 # genkernel-9999.REV    -> use SVN REV
 # genkernel-VERSION     -> normal genkernel release
 
-EAPI="2"
+EAPI="3"
 
 inherit bash-completion eutils
 
