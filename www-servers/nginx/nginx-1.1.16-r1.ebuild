@@ -147,6 +147,7 @@ pkg_setup() {
 src_prepare() {
 	sed -i 's/ make/ \\$(MAKE)/' "${S}"/auto/lib/perl/make
 
+	epatch "${FILESDIR}"/nginx-memory_disclosure.patch 
 	epatch "${FILESDIR}"/nginx-http_mp4_module.patch  
 
 	if use nginx_modules_http_ey_balancer; then
