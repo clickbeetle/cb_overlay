@@ -22,7 +22,7 @@ for ebl in ebFile.readlines():
   eBuildList.append(ebl.rstrip().lstrip())
 
 if(len(eBuildList) > 0):
-  cb_ports = Tree("gentoo","master", "git://github.com/clickbeetle/cb_ports.git", pull=True, trylocal="/BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports")
+  cb_ports = Tree("cb-ports","master", "git://github.com/clickbeetle/cb_ports.git", pull=True, trylocal="/BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports")
   cb_ports_locked = Tree("cbl",branch, "git@github.com:clickbeetle/cb_ports_locked.git", pull=True)
 
   for ebl in eBuildList:
