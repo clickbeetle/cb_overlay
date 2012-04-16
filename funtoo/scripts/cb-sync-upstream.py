@@ -25,9 +25,9 @@ fun_pkgs = os.popen(cwd +"/cb-get-pkgs.sh "+ funtoo_overlay.root.rstrip("/"),"r"
 funtoo_pkgs = []
 for x in fun_pkgs: 
   funtoo_pkgs.append(x.lstrip().rstrip())
+  
 for f_pkgs in funtoo_pkgs:
-  if(os.path.exists(cb_overlay.root.rstrip("/") + f_pkgs)):
-    print(f_pkgs + " exists")
+  print(cb_overlay.root.rstrip("/") + f_pkgs)
 
 #for ebl in eBuildList:
   #if(ebl):
