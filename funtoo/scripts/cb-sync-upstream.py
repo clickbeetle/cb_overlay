@@ -21,11 +21,13 @@ for ebl in ebFile.readlines():
 cb_overlay = Tree("cb-overlay","master", "git://github.com/clickbeetle/cb_overlay.git", pull=True)
 funtoo_overlay = Tree("funtoo-overlay", "master", "git://github.com/funtoo/funtoo-overlay.git", pull=True)
 
-f_pkgs = os.popen(cwd +"/cb-get-pkgs.sh "+ funtoo_overlay.root.rstrip("/"),"r").readlines()
+fun_pkgs = os.popen(cwd +"/cb-get-pkgs.sh "+ funtoo_overlay.root.rstrip("/"),"r").readlines()
 funtoo_pkgs = []
-for x in f_pkgs: 
+for x in fun_pkgs: 
   funtoo_pkgs.append(x.lstrip().rstrip())
-print funtoo_pkgs
+for f_pkgs in funtoo_pkgs:
+  if(sys.path.exists(cb_overlay.root.rstrp("/") + f_pkgs):
+    print(f_pkgs + " exists"
 
 #for ebl in eBuildList:
   #if(ebl):
