@@ -26,7 +26,7 @@ funtoo_pkgs = []
 for x in fun_pkgs: 
   funtoo_pkgs.append(x.lstrip().rstrip())
 for f_pkgs in funtoo_pkgs:
-  if(sys.path.exists(cb_overlay.root.rstrip("/") + f_pkgs):
+  if(sys.path.exists(cb_overlay.root.rstrip("/") + f_pkgs)):
     print(f_pkgs + " exists"
 
 #for ebl in eBuildList:
