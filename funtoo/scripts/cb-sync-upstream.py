@@ -28,7 +28,9 @@ for x in fun_pkgs:
   
 for f_pkgs in funtoo_pkgs:
   if(os.path.exists(cb_overlay.root.rstrip("/") +"/"+ f_pkgs)):
-    print(cb_overlay.root.rstrip("/") +"/"+ f_pkgs)
+    print(cb_overlay.root.rstrip("/") +"/"+ f_pkgs +" : exists")
+  else:
+    print(cb_overlay.root.rstrip("/") +"/"+ f_pkgs +" : cease to exist")
 
 #for ebl in eBuildList:
   #if(ebl):
