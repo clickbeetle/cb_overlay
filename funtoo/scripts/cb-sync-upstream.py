@@ -65,14 +65,13 @@ for ebl in eBuildList:
     continue
   
 for eb in ebSend:
-  print("Syncing pkg : "+ eb)
-  os.system("rsync -av --delete-after "+ funtoo_overlay.root.rstrip("/") +"/"+ eb +"/ "+ work.root.rstrip("/") +"/"+ eb +"/")
+  print("rsync -av --delete-after "+ funtoo_overlay.root.rstrip("/") +"/"+ eb +"/ "+ work.root.rstrip("/") +"/"+ eb +"/")
 
   
-steps = [
-  GitPrep(branch),
-  SyncTree(work),
-]
+#steps = [
+  #GitPrep(branch),
+  #SyncTree(work),
+#]
   
 
   
@@ -81,16 +80,16 @@ steps = [
   
   
   
-for d in dest:
-  if not os.path.isdir(d):
-    os.makedirs(d)
-  if not os.path.isdir("%s/.git" % d):
-    runShell("( cd %s; git init )" % d )
-    runShell("echo 'created by merge.py' > %s/README" % d )
-    runShell("( cd %s; git add README; git commit -a -m 'initial commit by merge.py' )" % d )
-    runShell("( cd %s; git checkout -b "+ branch +"; git rm -f README; git commit -a -m 'initial clickbeetle.in commit' )" % ( d ) )
-    print("Pushing disabled automatically because repository created from scratch.")
-    push = False
-  prod = UnifiedTree(d,steps)
-  prod.run()
-  prod.gitCommit(message="sync upstream funtoo-overlay updates",push=push)
+#for d in dest:
+  #if not os.path.isdir(d):
+    #os.makedirs(d)
+  #if not os.path.isdir("%s/.git" % d):
+    #runShell("( cd %s; git init )" % d )
+    #runShell("echo 'created by merge.py' > %s/README" % d )
+    #runShell("( cd %s; git add README; git commit -a -m 'initial commit by merge.py' )" % d )
+    #runShell("( cd %s; git checkout -b "+ branch +"; git rm -f README; git commit -a -m 'initial clickbeetle.in commit' )" % ( d ) )
+    #print("Pushing disabled automatically because repository created from scratch.")
+    #push = False
+  #prod = UnifiedTree(d,steps)
+  #prod.run()
+  #prod.gitCommit(message="sync upstream funtoo-overlay updates",push=push)
