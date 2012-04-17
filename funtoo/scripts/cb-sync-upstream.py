@@ -59,7 +59,7 @@ steps = [
   SyncDir(funtoo_overlay.root,"eclass"),
   SyncDir(funtoo_overlay.root,"metadata"),
   SyncDir(funtoo_overlay.root,"profiles","profiles", exclude=["repo_name","categories"]),
-  SyncDir(funtoo_overlay.root,"virtual")
+  SyncDir(funtoo_overlay.root,"virtual"),
   GitPull(branch)
 ]
 
