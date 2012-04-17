@@ -21,19 +21,6 @@ for ebl in ebFile.readlines():
 cb_overlay = Tree("cb-overlay","master", "git://github.com/clickbeetle/cb_overlay.git", pull=True)
 funtoo_overlay = Tree("funtoo-overlay", "master", "git://github.com/funtoo/funtoo-overlay.git", pull=True)
 
-steps = [
-  SyncTree(cb_overlay),
-  SyncDir(funtoo_overlay.root,"licenses"),
-  SyncDir(funtoo_overlay.root,"eclass"),
-  SyncDir(funtoo_overlay.root,"metadata"),
-  SyncDir(funtoo_overlay.root,"profiles","profiles", exclude=["repo_name","categories"]),
-  SyncDir(funtoo_overlay.root,"virtual"),
-  ProfileDepFix()
-]
-
-work = UnifiedTree("/dev/shm/merge-%s" % os.path.basename(dest[0]),steps)
-work.run()
-
 
 
 
@@ -63,33 +50,31 @@ for ebl in eBuildList:
   except:
     print("WTF error")
     continue
+
+
+
+steps = [
+  SyncTree(cb_overlay),
+  SyncDir(funtoo_overlay.root,"licenses"),
+  SyncDir(funtoo_overlay.root,"eclass"),
+  SyncDir(funtoo_overlay.root,"metadata"),
+  SyncDir(funtoo_overlay.root,"profiles","profiles", exclude=["repo_name","categories"]),
+  SyncDir(funtoo_overlay.root,"virtual")
+]
+
+
+for des in dest:
+  d = des.rstrip("/")
+  work = UnifiedTree(d,steps)
+  work.run()
+
+  for eb in ebSend:
+    os.system("rsync -av --delete-after "+ funtoo_overlay.root.rstrip("/") +"/"+ eb +"/ "+ work.root.rstrip("/") +"/"+ eb +"/")
+
+  prod.gitCommit(message="sync upstream funtoo-overlay updates",push=push)
   
-for eb in ebSend:
-  print("rsync -av --delete-after "+ funtoo_overlay.root.rstrip("/") +"/"+ eb +"/ "+ work.root.rstrip("/") +"/"+ eb +"/")
+
+
+
 
   
-#steps = [
-  #GitPrep(branch),
-  #SyncTree(work),
-#]
-  
-
-  
-  
-  
-  
-  
-  
-#for d in dest:
-  #if not os.path.isdir(d):
-    #os.makedirs(d)
-  #if not os.path.isdir("%s/.git" % d):
-    #runShell("( cd %s; git init )" % d )
-    #runShell("echo 'created by merge.py' > %s/README" % d )
-    #runShell("( cd %s; git add README; git commit -a -m 'initial commit by merge.py' )" % d )
-    #runShell("( cd %s; git checkout -b "+ branch +"; git rm -f README; git commit -a -m 'initial clickbeetle.in commit' )" % ( d ) )
-    #print("Pushing disabled automatically because repository created from scratch.")
-    #push = False
-  #prod = UnifiedTree(d,steps)
-  #prod.run()
-  #prod.gitCommit(message="sync upstream funtoo-overlay updates",push=push)
