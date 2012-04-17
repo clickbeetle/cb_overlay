@@ -355,6 +355,13 @@ class GitPrep(MergeStep):
 	def run(self,tree):
 		runShell("( cd %s; git checkout %s )" % ( tree.root, self.branch ))
 
+class GitPull(MergeStep):
+        def __init__(self,branch):
+                self.branch = branch
+
+        def run(self,tree):
+                runShell("( cd %s; git pull )" % ( tree.root ))  
+
 class Minify(MergeStep):
 	def run(self,tree):
 		runShell("( cd %s; find -iname ChangeLog -exec rm -f {} \; )" % tree.root )
