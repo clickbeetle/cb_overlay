@@ -69,9 +69,9 @@ for des in dest:
   work.run()
 
   for eb in ebSend:
-    os.system("rsync -av --delete-after "+ funtoo_overlay.root.rstrip("/") +"/"+ eb +"/ "+ work.root.rstrip("/") +"/"+ eb +"/")
+    print("rsync -av --delete-after "+ funtoo_overlay.root.rstrip("/") +"/"+ eb +"/ "+ work.root.rstrip("/") +"/"+ eb +"/")
 
-  prod.gitCommit(message="sync upstream funtoo-overlay updates",push=push)
+  work.gitCommit(message="sync upstream funtoo-overlay updates",push=push)
   
 
 
