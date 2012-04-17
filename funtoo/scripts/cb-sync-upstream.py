@@ -54,8 +54,8 @@ for ebl in eBuildList:
 
 
 steps = [
-  SyncTree(cb_overlay),
   GitPull(branch),
+  SyncTree(cb_overlay),
   SyncDir(funtoo_overlay.root,"licenses"),
   SyncDir(funtoo_overlay.root,"eclass"),
   SyncDir(funtoo_overlay.root,"metadata"),
