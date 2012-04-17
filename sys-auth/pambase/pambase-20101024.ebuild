@@ -4,7 +4,7 @@
 
 EAPI=3
 
-inherit eutils pam
+inherit eutils
 
 DESCRIPTION="PAM base configuration files"
 HOMEPAGE="http://www.gentoo.org/proj/en/base/pam/"
@@ -13,7 +13,7 @@ SRC_URI="http://dev.gentoo.org/~flameeyes/${PN}/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~alpha amd64 arm hppa ~ia64 ~m68k ~mips ppc ppc64 ~s390 ~sh sparc x86 ~sparc-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux"
-IUSE="debug cracklib passwdqc consolekit gnome-keyring selinux mktemp ssh +sha512 kerberos minimal ldaplogin"
+IUSE="debug cracklib passwdqc consolekit gnome-keyring selinux mktemp ssh +sha512 kerberos minimal"
 RESTRICT="binchecks"
 
 RDEPEND="
@@ -34,10 +34,6 @@ RDEPEND="
 	kerberos? (
 		>=sys-libs/pam-1.1.0
 		sys-auth/pam_krb5
-	)
-	ldaplogin? (
-		sys-auth/pam_ldap
-		sys-auth/nss_ldap
 	)
 	!<sys-freebsd/freebsd-pam-modules-6.2-r1
 	!<sys-libs/pam-0.99.9.0-r1"
@@ -83,9 +79,6 @@ src_compile() {
 
 src_install() {
 	emake GIT=true DESTDIR="${ED}" install || die "emake install failed"
-	if use ldaplogin; then
-		dopamd "${FILESDIR}/system-auth.cb_allow_ldap"
-	fi
 }
 
 pkg_postinst() {
