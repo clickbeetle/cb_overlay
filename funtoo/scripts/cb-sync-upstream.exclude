@@ -1,0 +1,4 @@
+sys-boot/grub
+sys-kernel/genkernel
+sys-apps/openrc
+sys-apps/baselayout
