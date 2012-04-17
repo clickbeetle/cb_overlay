@@ -70,6 +70,12 @@ for des in dest:
   work.run()
 
   for eb in ebSend:
+    if(not os.path.exists(work.root.rstrip("/") +"/"+ eb +"/")):
+      try:
+        os.makedirs(work.root.rstrip("/") +"/"+ eb +"/")
+      except:
+        print("Error in making ebuild : "+ work.root.rstrip("/") +"/"+ eb +"/")
+        os.exit(1)
     os.system("rsync -av --delete-after "+ funtoo_overlay.root.rstrip("/") +"/"+ eb +"/ "+ work.root.rstrip("/") +"/"+ eb +"/")
 
   work.gitCommit(message="sync upstream funtoo-overlay updates",push=push)
