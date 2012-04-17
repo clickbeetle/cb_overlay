@@ -1,4 +1,6 @@
 sys-boot/grub
+sys-boot/grub-legacy
 sys-kernel/genkernel
 sys-apps/openrc
 sys-apps/baselayout
+app-shells/bash
