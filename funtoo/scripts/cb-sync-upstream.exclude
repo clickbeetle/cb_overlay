@@ -8,4 +8,3 @@ sys-apps/baselayout
 app-shells/bash
 net-misc/netkit-rsh
 sys-auth/pambase
-
