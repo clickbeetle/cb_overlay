@@ -1,0 +1,10 @@
+sys-boot/grub
+sys-boot/grub-legacy
+sys-boot/boot-update
+sys-boot/grub-legacy-static
+sys-kernel/genkernel
+sys-apps/openrc
+sys-apps/baselayout
+app-shells/bash
+net-misc/netkit-rsh
+sys-auth/pambase
