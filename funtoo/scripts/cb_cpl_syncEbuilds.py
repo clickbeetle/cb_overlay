@@ -36,7 +36,7 @@ if(len(eBuildList) > 0):
     ProfileDepFix(),
     SyncDir(cb_ports.root,"licenses"),
     SyncDir(cb_ports.root,"eclass"),
-    InsertEbuilds(cb_ports,select=eBuildList,replace=True)
+    InsertEbuilds(cb_ports,select=eBuildList,replace=True),
     Minify(),
     GenCache()
   ]
