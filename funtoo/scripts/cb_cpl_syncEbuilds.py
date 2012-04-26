@@ -60,7 +60,7 @@ if(len(eBuildList) > 0):
       push = False
     prod = UnifiedTree(d,steps)
     prod.run()
-    prod.gitCommit(message="sync ebuild updates",push=True)
+    prod.gitCommit(message="sync ebuild updates",push=push)
 
 
     
