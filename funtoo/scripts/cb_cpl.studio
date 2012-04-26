@@ -287,3 +287,8 @@ kde-base/klinkstatus
 kde-base/kommander
 kde-base/kdebase-meta
 kde-base/kde-meta
+
+# Mozilla updates
+mail-client/thunderbird
+www-client/firefox
+www-client/seamonkey
