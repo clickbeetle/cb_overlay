@@ -292,3 +292,11 @@ kde-base/kde-meta
 mail-client/thunderbird
 www-client/firefox
 www-client/seamonkey
+
+#vlc
+media-video/vlc
+
+#mplayer nsplugins
+www-plugins/gecko-mediaplayer
+media-video/gnome-mplayer
+media-libs/gmtk
