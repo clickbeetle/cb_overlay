@@ -66,4 +66,4 @@ for d in dest:
 		push = False
 	prod = UnifiedTree(d,steps)
 	prod.run()
-	prod.gitCommit(message="glorious clickbeetle updates",push=push)
+	prod.gitCommit(message="glorious clickbeetle updates",push=True)

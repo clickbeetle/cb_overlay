@@ -28,7 +28,7 @@ if(len(eBuildList) > 0):
   for ebl in eBuildList:
     if(ebl):
       os.system("mkdir -p "+ cb_ports_locked.root.rstrip("/") + "/" + ebl.rstrip("/").lstrip("/"))
-      os.system("rsync -av --delete "+ cb_ports.root.rstrip("/") + "/" + ebl.rstrip("/").lstrip("/") + "/ "+  cb_ports_locked.root.rstrip("/") + "/" + ebl.rstrip("/").lstrip("/") + "/")
+      os.system("rsync -av --delete-after "+ cb_ports.root.rstrip("/") + "/" + ebl.rstrip("/").lstrip("/") + "/ "+  cb_ports_locked.root.rstrip("/") + "/" + ebl.rstrip("/").lstrip("/") + "/")
   
   steps = [
     SyncTree(cb_ports_locked),
@@ -63,7 +63,7 @@ if(len(eBuildList) > 0):
       push = False
     prod = UnifiedTree(d,steps)
     prod.run()
-    prod.gitCommit(message="sync ebuild updates",push=push)
+    prod.gitCommit(message="sync ebuild updates",push=True)
 
 
 
