@@ -300,3 +300,7 @@ media-video/vlc
 www-plugins/gecko-mediaplayer
 media-video/gnome-mplayer
 media-libs/gmtk
+
+#kernels and its tools
+sys-kernel/genkernel
+sys-kernel/gentoo-sources
