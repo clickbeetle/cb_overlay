@@ -17,24 +17,26 @@ else:
 eBuildList = []
 ebFile = open(cwd +"/cb_cpl."+ branch,"r")
 for ebl in ebFile.readlines():
-  if(ebl.find("#") == 0):
-    continue
-  eBuildList.append(ebl.rstrip().lstrip())
+  if(ebl):
+    if(ebl.find("#") == 0):
+      continue
+    eBuildList.append(ebl.rstrip().lstrip())
 
 if(len(eBuildList) > 0):
   cb_ports = Tree("cb-ports","master", "git://github.com/clickbeetle/cb_ports.git", pull=True, trylocal="/BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports")
   cb_ports_locked = Tree("cbl",branch, "git@github.com:clickbeetle/cb_ports_locked.git", pull=True)
 
-  for ebl in eBuildList:
-    if(ebl):
-      os.system("mkdir -p "+ cb_ports_locked.root.rstrip("/") + "/" + ebl.rstrip("/").lstrip("/"))
-      os.system("rsync -av --delete-after "+ cb_ports.root.rstrip("/") + "/" + ebl.rstrip("/").lstrip("/") + "/ "+  cb_ports_locked.root.rstrip("/") + "/" + ebl.rstrip("/").lstrip("/") + "/")
+  #for ebl in eBuildList:
+    #if(ebl):
+      #os.system("mkdir -p "+ cb_ports_locked.root.rstrip("/") + "/" + ebl.rstrip("/").lstrip("/"))
+      #os.system("rsync -av --delete-after "+ cb_ports.root.rstrip("/") + "/" + ebl.rstrip("/").lstrip("/") + "/ "+  cb_ports_locked.root.rstrip("/") + "/" + ebl.rstrip("/").lstrip("/") + "/")
   
   steps = [
     SyncTree(cb_ports_locked),
     ProfileDepFix(),
     SyncDir(cb_ports.root,"licenses"),
     SyncDir(cb_ports.root,"eclass"),
+    InsertEbuilds(cb_ports,select=eBuildList,replace=True)
     Minify(),
     GenCache()
   ]
@@ -66,6 +68,7 @@ if(len(eBuildList) > 0):
     prod.gitCommit(message="sync ebuild updates",push=True)
 
 
+    
 
 
 
