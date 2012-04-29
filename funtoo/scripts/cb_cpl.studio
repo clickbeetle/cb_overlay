@@ -304,3 +304,9 @@ media-libs/gmtk
 #kernels and its tools
 sys-kernel/genkernel
 sys-kernel/gentoo-sources
+
+#chromium and its deps
+www-client/chromium
+www-client/google-chrome
+dev-lang/v8
+dev-lang/nacl-toolchain-newlib
