@@ -319,3 +319,6 @@ x11-drivers/nvidia-drivers
 media-video/nvidia-settings
 media-gfx/nvidia-cg-toolkit
 dev-util/nvidia-cuda-tdk
+
+#mysql-workbench
+dev-db/mysql-workbench
