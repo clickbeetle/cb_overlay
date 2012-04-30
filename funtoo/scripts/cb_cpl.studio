@@ -315,3 +315,7 @@ dev-lang/nacl-toolchain-newlib
 dev-util/nvidia-cuda-sdk
 dev-util/nvidia-cuda-toolkit
 dev-python/pycuda
+x11-drivers/nvidia-drivers
+media-video/nvidia-settings
+media-gfx/nvidia-cg-toolkit
+dev-util/nvidia-cuda-tdk
