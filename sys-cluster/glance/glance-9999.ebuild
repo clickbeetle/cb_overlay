@@ -20,17 +20,18 @@ KEYWORDS="*"
 IUSE=""
 
 DEPEND="$(python_abi_depend dev-python/setuptools)"
-RDEPEND="${DEPEND} $(python_abi_depend dev-python/webob dev-python/httplib2 dev-python/routes dev-python/paste dev-python/pastedeploy dev-python/pyxattr dev-python/kombu )"
+RDEPEND="${DEPEND} $(python_abi_depend dev-python/eventlet dev-python/iso8601 dev-python/webob dev-python/httplib2 dev-python/routes dev-python/paste dev-python/pastedeploy dev-python/pyxattr dev-python/kombu dev-python/sqlalchemy-migrate)"
 
 src_install() {
 	distutils_src_install
-	newconfd "${FILESDIR}/glance.confd" glance
-	newinitd "${FILESDIR}/glance.initd" glance
-
-	for function in api registry scrubber; do
-		dosym /etc/init.d/glance /etc/init.d/glance-${function}
+	for i in api registry scrubber; do
+		newinitd "${FILESDIR}/glance-all.initd" glance-${i}
 	done
 
 	diropts -m 0750
-	dodir /var/run/glance /var/log/nova /var/lock/nova
+	dodir /var/run/glance /var/log/glance /var/lock/glance
+
+	insinto /etc/glance
+	doins ${S}/etc/*
+	sed -ie 'sX^sql_connection.*$Xsql_connection = sqlite:////etc/glance/glance.sqliteX' ${D}/etc/glance/glance-registry.conf || die
 }
