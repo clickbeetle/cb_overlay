@@ -8,3 +8,5 @@ sys-apps/baselayout
 app-shells/bash
 net-misc/netkit-rsh
 sys-auth/pambase
+dev-java/oracle-jdk-bin
+dev-java/oracle-jre-bin
