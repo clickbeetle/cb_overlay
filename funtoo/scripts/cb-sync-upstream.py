@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 from merge_utils import *
+import glob
 
 progPath =  sys.argv[0].split("/")
 cwd = os.getcwd()
@@ -59,7 +60,7 @@ steps = [
   SyncDir(funtoo_overlay.root,"licenses"),
   SyncDir(funtoo_overlay.root,"eclass"),
   SyncDir(funtoo_overlay.root,"metadata"),
-  SyncDir(funtoo_overlay.root,"profiles","profiles", exclude=["repo_name","categories"]),
+  SyncDir(funtoo_overlay.root,"profiles","profiles", exclude=["repo_name","categories","package.mask","package.unmask","package.use"]),
   SyncDir(funtoo_overlay.root,"virtual")
 ]
 
@@ -77,6 +78,9 @@ for des in dest:
         print("Error in making ebuild : "+ work.root.rstrip("/") +"/"+ eb +"/")
         os.exit(1)
     os.system("rsync -av --delete-after "+ funtoo_overlay.root.rstrip("/") +"/"+ eb +"/ "+ work.root.rstrip("/") +"/"+ eb +"/")
+    
+  cb_masks = os.popen(cb_overlay.root.rstrip("/") + "/profiles/package.mask/cb","r").readlines()
+  print(cb_masks)
 
   work.gitCommit(message="sync upstream funtoo-overlay updates",push=push)
   
