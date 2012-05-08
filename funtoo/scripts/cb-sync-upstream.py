@@ -93,12 +93,12 @@ for des in dest:
     cb_masks.append(portage.catpkgsplit(cbm.lstrip(">").lstrip("<").lstrip("=").lstrip(">").lstrip("<").lstrip("=").rstrip()))
   funtoo_masks = glob.glob(funtoo_overlay.root.rstrip("/") + "/profiles/package.mask/*")
   for funtoo_mask in funtoo_masks:
+    os.system("rsync -av --delete-after "+ funtoo_mask +" "+ work.root.rstrip("/") +"/profiles/package.mask/")
     if(len(cb_masks) > 0):
       for cb_mask in cb_masks:
 	pkgName = cb_mask[0] +"/"+ cb_mask[1]
-	os.system("sed \'/"+ cb_mask[0] +"\\/"+ cb_mask[1] +"/d\' "+ funtoo_mask +" > "+ work.root.rstrip("/") +"/profiles/package.mask/" + funtoo_mask.split("/")[-1])
-    else:
-      os.system("rsync -av --delete-after "+ funtoo_mask +" "+ work.root.rstrip("/") +"/profiles/package.mask/")
+	os.system("sed -i \'/"+ cb_mask[0] +"\\/"+ cb_mask[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.mask/" + funtoo_mask.split("/")[-1])
+      
       
 
   cb_unmasks_Full = open(cb_overlay.root.rstrip("/") + "/profiles/package.unmask/cb","r").readlines()
@@ -111,12 +111,12 @@ for des in dest:
     cb_unmasks.append(portage.catpkgsplit(cbum.lstrip(">").lstrip("<").lstrip("=").lstrip(">").lstrip("<").lstrip("=").rstrip()))
   funtoo_unmasks = glob.glob(funtoo_overlay.root.rstrip("/") + "/profiles/package.unmask/*")
   for funtoo_unmask in funtoo_unmasks:
+    os.system("rsync -av --delete-after "+ funtoo_unmask +" "+ work.root.rstrip("/") +"/profiles/package.unmask/")
     if(len(cb_unmasks) > 0):
       for cb_unmask in cb_unmasks:
 	pkgName = cb_unmask[0] +"/"+ cb_unmask[1]
-	os.system("sed \'/"+ cb_unmask[0] +"\\/"+ cb_unmask[1] +"/d\' "+ funtoo_unmask +" > "+ work.root.rstrip("/") +"/profiles/package.unmask/" + funtoo_unmask.split("/")[-1])
-    else:
-      os.system("rsync -av --delete-after "+ funtoo_unmask +" "+ work.root.rstrip("/") +"/profiles/package.unmask/")
+	os.system("sed -i \'/"+ cb_unmask[0] +"\\/"+ cb_unmask[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.unmask/" + funtoo_unmask.split("/")[-1])
+      
       
       
   cb_use_Full = open(cb_overlay.root.rstrip("/") + "/profiles/package.use/cb","r").readlines()
@@ -130,12 +130,12 @@ for des in dest:
     cb_uses.append(cbuu[0].lstrip(">").lstrip("<").lstrip("=").lstrip(">").lstrip("<").lstrip("=").rstrip())
   funtoo_uses = glob.glob(funtoo_overlay.root.rstrip("/") + "/profiles/package.use/*")
   for funtoo_use in funtoo_uses:
+    os.system("rsync -av --delete-after "+ funtoo_use +" "+ work.root.rstrip("/") +"/profiles/package.use/")
     if(len(cb_uses) > 0):
       for cb_use in cb_uses:
 	pkgName = cb_use[0] +"/"+ cb_use[1]
-	os.system("sed \'/"+ cb_use[0] +"\\/"+ cb_use[1] +"/d\' "+ funtoo_use +" > "+ work.root.rstrip("/") +"/profiles/package.use/" + funtoo_use.split("/")[-1])
-    else:
-      os.system("rsync -av --delete-after "+ funtoo_use +" "+ work.root.rstrip("/") +"/profiles/package.use/")
+	os.system("sed -i \'/"+ cb_use[0] +"\\/"+ cb_use[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.use/" + funtoo_use.split("/")[-1])
+      
 
 
 
