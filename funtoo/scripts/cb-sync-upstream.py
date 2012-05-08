@@ -48,7 +48,7 @@ for ebl in eBuildList:
     ebSend.remove(ebl)
     print("Not syncing pkg : "+ ebl)
   except:
-    print("WTF error")
+    print("WTF error : "+ ebl)
     continue
 
 
