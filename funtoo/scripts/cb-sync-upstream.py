@@ -2,6 +2,8 @@
 
 from merge_utils import *
 import glob
+import re
+import portage
 
 progPath =  sys.argv[0].split("/")
 cwd = os.getcwd()
@@ -15,6 +17,8 @@ else:
 eBuildList = []
 ebFile = open(cwd +"/cb-sync-upstream.exclude","r")
 for ebl in ebFile.readlines():
+  if(re.match(r'^\s*$',ebl)):
+    continue
   if(ebl.find("#") == 0):
     continue
   eBuildList.append(ebl.rstrip().lstrip())
@@ -82,11 +86,18 @@ for des in dest:
   cb_masks_Full = open(cb_overlay.root.rstrip("/") + "/profiles/package.mask/cb","r").readlines()
   cb_masks = []
   for cbm in cb_masks_Full:
-    if(cbm):
-      if(cbm.find("#") == 0):
-	continue
-      cb_masks.append(cbm.lstrip(">").lstrip("<").lstrip("=").lstrip(">").lstrip("<").lstrip("="))
-  print(cb_masks)  
+    if(re.match(r'^\s*$', cbm)):
+      continue
+    if(cbm.find("#") == 0):
+      continue
+    
+    cb_masks.append(portage.catpkgsplit(cbm.lstrip(">").lstrip("<").lstrip("=").lstrip(">").lstrip("<").lstrip("=").rstrip()))
+  
+  funtoo_masks = glob.glob(funtoo_overlay.root.rstrip("/") + "/profiles/package.mask/*")
+  for funtoo_mask in funtoo_masks:
+    for cb_mask in cb_masks:
+      pkgName = cb_mask[0] +"/"+ cb_mask[1]
+      os.system("sed \'/"+ cb_mask[0] +"\\/"+ cb_mask[1] +"/d\' "+ funtoo_mask +" > "+ work.root.rstrip("/") +"/profiles/package.mask/" + funtoo_mask.split("/")[-1])
 
   work.gitCommit(message="sync upstream funtoo-overlay updates",push=push)
   
