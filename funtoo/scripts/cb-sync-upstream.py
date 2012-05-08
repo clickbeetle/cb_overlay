@@ -90,14 +90,54 @@ for des in dest:
       continue
     if(cbm.find("#") == 0):
       continue
-    
     cb_masks.append(portage.catpkgsplit(cbm.lstrip(">").lstrip("<").lstrip("=").lstrip(">").lstrip("<").lstrip("=").rstrip()))
-  
   funtoo_masks = glob.glob(funtoo_overlay.root.rstrip("/") + "/profiles/package.mask/*")
   for funtoo_mask in funtoo_masks:
-    for cb_mask in cb_masks:
-      pkgName = cb_mask[0] +"/"+ cb_mask[1]
-      os.system("sed \'/"+ cb_mask[0] +"\\/"+ cb_mask[1] +"/d\' "+ funtoo_mask +" > "+ work.root.rstrip("/") +"/profiles/package.mask/" + funtoo_mask.split("/")[-1])
+    if(len(cb_masks) > 0):
+      for cb_mask in cb_masks:
+	pkgName = cb_mask[0] +"/"+ cb_mask[1]
+	os.system("sed \'/"+ cb_mask[0] +"\\/"+ cb_mask[1] +"/d\' "+ funtoo_mask +" > "+ work.root.rstrip("/") +"/profiles/package.mask/" + funtoo_mask.split("/")[-1])
+    else:
+      os.system("rsync -av --delete-after "+ funtoo_mask +" "+ work.root.rstrip("/") +"/profiles/package.mask/")
+      
+
+  cb_unmasks_Full = open(cb_overlay.root.rstrip("/") + "/profiles/package.unmask/cb","r").readlines()
+  cb_unmasks = []
+  for cbum in cb_unmasks_Full:
+    if(re.match(r'^\s*$', cbum)):
+      continue
+    if(cbum.find("#") == 0):
+      continue
+    cb_unmasks.append(portage.catpkgsplit(cbum.lstrip(">").lstrip("<").lstrip("=").lstrip(">").lstrip("<").lstrip("=").rstrip()))
+  funtoo_unmasks = glob.glob(funtoo_overlay.root.rstrip("/") + "/profiles/package.unmask/*")
+  for funtoo_unmask in funtoo_unmasks:
+    if(len(cb_unmasks) > 0):
+      for cb_unmask in cb_unmasks:
+	pkgName = cb_unmask[0] +"/"+ cb_unmask[1]
+	os.system("sed \'/"+ cb_unmask[0] +"\\/"+ cb_unmask[1] +"/d\' "+ funtoo_unmask +" > "+ work.root.rstrip("/") +"/profiles/package.unmask/" + funtoo_unmask.split("/")[-1])
+    else:
+      os.system("rsync -av --delete-after "+ funtoo_unmask +" "+ work.root.rstrip("/") +"/profiles/package.unmask/")
+      
+      
+  cb_use_Full = open(cb_overlay.root.rstrip("/") + "/profiles/package.use/cb","r").readlines()
+  cb_uses = []
+  for cbu in cb_use_Full:
+    if(re.match(r'^\s*$', cbu)):
+      continue
+    if(cbu.find("#") == 0):
+      continue
+    cbuu = cbu.split()
+    cb_uses.append(cbuu[0].lstrip(">").lstrip("<").lstrip("=").lstrip(">").lstrip("<").lstrip("=").rstrip())
+  funtoo_uses = glob.glob(funtoo_overlay.root.rstrip("/") + "/profiles/package.use/*")
+  for funtoo_use in funtoo_uses:
+    if(len(cb_uses) > 0):
+      for cb_use in cb_uses:
+	pkgName = cb_use[0] +"/"+ cb_use[1]
+	os.system("sed \'/"+ cb_use[0] +"\\/"+ cb_use[1] +"/d\' "+ funtoo_use +" > "+ work.root.rstrip("/") +"/profiles/package.use/" + funtoo_use.split("/")[-1])
+    else:
+      os.system("rsync -av --delete-after "+ funtoo_use +" "+ work.root.rstrip("/") +"/profiles/package.use/")
+
+
 
   work.gitCommit(message="sync upstream funtoo-overlay updates",push=push)
   
