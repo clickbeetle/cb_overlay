@@ -79,8 +79,14 @@ for des in dest:
         os.exit(1)
     os.system("rsync -av --delete-after "+ funtoo_overlay.root.rstrip("/") +"/"+ eb +"/ "+ work.root.rstrip("/") +"/"+ eb +"/")
     
-  cb_masks = os.popen(cb_overlay.root.rstrip("/") + "/profiles/package.mask/cb","r").readlines()
-  print(cb_masks)
+  cb_masks_Full = open(cb_overlay.root.rstrip("/") + "/profiles/package.mask/cb","r").readlines()
+  cb_masks = []
+  for cbm in cb_masks_Full:
+    if(cbm):
+      if(cbm.find("#") == 0):
+	continue
+      cb_masks.append(cbm.lstrip(">").lstrip("<").lstrip("=").lstrip(">").lstrip("<").lstrip("="))
+  print(cb_masks)  
 
   work.gitCommit(message="sync upstream funtoo-overlay updates",push=push)
   
