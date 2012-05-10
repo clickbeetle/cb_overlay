@@ -310,6 +310,7 @@ www-client/chromium
 www-client/google-chrome
 dev-lang/v8
 dev-lang/nacl-toolchain-newlib
+dev-libs/icu
 
 #cuda and tools
 dev-util/nvidia-cuda-sdk
