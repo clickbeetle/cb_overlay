@@ -287,6 +287,8 @@ kde-base/klinkstatus
 kde-base/kommander
 kde-base/kdebase-meta
 kde-base/kde-meta
+virtual/pkgconfig
+
 
 # Mozilla updates
 mail-client/thunderbird
