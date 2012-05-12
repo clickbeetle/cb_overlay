@@ -2,4 +2,3 @@
 # Added by shrinidhi rao <shrinidhi@clickbeetle.in>
 #>=media-sound/pulseaudio-1.99.2
 >=sys-kernel/gentoo-sources-3.3.0
->=sys-boot/grub-9999
