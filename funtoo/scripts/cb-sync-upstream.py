@@ -6,11 +6,10 @@ import re
 import portage
 
 progPath =  sys.argv[0].split("/")
-cwd = os.getcwd()
 if(len(progPath) > 1):
   pwd = "/".join(progPath[0:-1])
   print pwd
-  cwd = cwd.rstrip("/") +"/"+ pwd
+  cwd = pwd
 else:
   cwd = os.getcwd()
   
@@ -31,10 +30,13 @@ funtoo_overlay = Tree("funtoo-overlay", "master", "git://github.com/funtoo/funto
 
 
 fun_pkgs = os.popen(cwd +"/cb-get-pkgs.sh "+ funtoo_overlay.root.rstrip("/"),"r").readlines()
+cb_pkgs = os.popen(cwd +"/cb-get-pkgs.sh "+ cb_overlay.root.rstrip("/"),"r").readlines()
 funtoo_pkgs = []
+weevil_pkgs = []
 for x in fun_pkgs: 
   funtoo_pkgs.append(x.lstrip().rstrip())
-
+for x in cb_pkgs:
+  weevil_pkgs.append(x.lstrip().rstrip())
 
 
 pkgs_alive = []
@@ -56,7 +58,16 @@ for ebl in eBuildList:
     print("WTF error : "+ ebl)
     continue
 
-
+ebDel = []
+for weevil_pkg in weevil_pkgs:
+  try:
+    funtoo_pkgs.index(weevil_pkg)
+  except:
+    try:
+      eBuildList.index(weevil_pkg)
+    except:
+      ebDel.append(weevil_pkg)
+print("FOR DELETE : "+ str(ebDel))
 
 steps = [
   GitPull(branch),
@@ -65,7 +76,6 @@ steps = [
   SyncDir(funtoo_overlay.root,"eclass"),
   SyncDir(funtoo_overlay.root,"metadata"),
   SyncDir(funtoo_overlay.root,"profiles","profiles", exclude=["repo_name","categories","package.mask","package.unmask","package.use"]),
-  SyncDir(funtoo_overlay.root,"virtual")
 ]
 
 
@@ -82,6 +92,12 @@ for des in dest:
         print("Error in making ebuild : "+ work.root.rstrip("/") +"/"+ eb +"/")
         os.exit(1)
     os.system("rsync -av --delete-after "+ funtoo_overlay.root.rstrip("/") +"/"+ eb +"/ "+ work.root.rstrip("/") +"/"+ eb +"/")
+  
+  for eb in ebDel:
+    try:
+      os.system("rm -frv "+ work.root.rstrip("/") +"/"+ eb +"/")
+    except:
+      print("Error in deleting ebuild : "+ work.root.rstrip("/") +"/"+ eb +"/")
     
   cb_masks_Full = open(cb_overlay.root.rstrip("/") + "/profiles/package.mask/cb","r").readlines()
   cb_masks = []
