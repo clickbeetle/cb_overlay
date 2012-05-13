@@ -1,4 +1,7 @@
 # Martin Scholz (11 May 2012)
+# iptables fork and temporary mask, need test.
+>=net-firewall/iptables-1.4.13
+
 # Masking of libreoffice-bin > 3.5.* as needing toolchain upgrade
 >=app-office/libreoffice-bin-3.5
 
@@ -15,6 +18,7 @@
 # Martin Scholz (03 May 2012)
 # masking newer versions of grub
 # included Daniel Robbins old mask
+>=sys-boot/grub-1.99
 
 # Oleg Vinichenko ( 30 Apr 2012)
 # new ubuntu-sources ebuild for desktop users
