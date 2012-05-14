@@ -7,7 +7,7 @@ inherit multilib
 DESCRIPTION="Filesystem baselayout, initscripts and /sbin/realdev command"
 HOMEPAGE="http://www.funtoo.org/"
 GITHUB_REPO="baselayout"
-GITHUB_USER="funtoo"
+GITHUB_USER="clickbeetle"
 GITHUB_TAG="baselayout-2.1.8-r3"
 SRC_URI="https://www.github.com/${GITHUB_USER}/${GITHUB_REPO}/tarball/${GITHUB_TAG} ->  ${GITHUB_TAG}.tar.gz 
 http://www.funtoo.org/archive/realdev/realdev-1.0.tar.bz2"
