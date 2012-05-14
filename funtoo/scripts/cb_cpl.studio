@@ -325,3 +325,14 @@ dev-util/nvidia-cuda-tdk
 
 #mysql-workbench
 dev-db/mysql-workbench
+
+# graphics utils
+media-gfx/gimp
+media-plugins/gimp-gmic
+media-gfx/gimp-arrow-brushes
+media-gfx/pencil
+app-office/calligra
+app-office/calligra-l10n
+media-gfx/pencil
+
+
