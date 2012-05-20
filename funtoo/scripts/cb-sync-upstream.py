@@ -76,6 +76,7 @@ steps = [
   SyncDir(funtoo_overlay.root,"eclass"),
   SyncDir(funtoo_overlay.root,"metadata"),
   SyncDir(funtoo_overlay.root,"profiles","profiles", exclude=["repo_name","categories","package.mask","package.unmask","package.use"]),
+  SyncDir(funtoo_overlay.root,"funtoo","funtoo", exclude=["scripts"])
 ]
 
 
