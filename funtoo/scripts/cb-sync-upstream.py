@@ -112,9 +112,11 @@ for des in dest:
   for funtoo_mask in funtoo_masks:
     os.system("rsync -av --delete-after "+ funtoo_mask +" "+ work.root.rstrip("/") +"/profiles/package.mask/")
     if(len(cb_masks) > 0):
+      print cb_masks
       for cb_mask in cb_masks:
-	pkgName = cb_mask[0] +"/"+ cb_mask[1]
-	os.system("sed -i \'/"+ cb_mask[0] +"\\/"+ cb_mask[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.mask/" + funtoo_mask.split("/")[-1])
+	if(cb_mask):
+	  pkgName = cb_mask[0] +"/"+ cb_mask[1]
+	  os.system("sed -i \'/"+ cb_mask[0] +"\\/"+ cb_mask[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.mask/" + funtoo_mask.split("/")[-1])
       
       
 
@@ -131,8 +133,9 @@ for des in dest:
     os.system("rsync -av --delete-after "+ funtoo_unmask +" "+ work.root.rstrip("/") +"/profiles/package.unmask/")
     if(len(cb_unmasks) > 0):
       for cb_unmask in cb_unmasks:
-	pkgName = cb_unmask[0] +"/"+ cb_unmask[1]
-	os.system("sed -i \'/"+ cb_unmask[0] +"\\/"+ cb_unmask[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.unmask/" + funtoo_unmask.split("/")[-1])
+	if(cb_unmask):
+	  pkgName = cb_unmask[0] +"/"+ cb_unmask[1]
+	  os.system("sed -i \'/"+ cb_unmask[0] +"\\/"+ cb_unmask[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.unmask/" + funtoo_unmask.split("/")[-1])
       
       
       
@@ -150,8 +153,9 @@ for des in dest:
     os.system("rsync -av --delete-after "+ funtoo_use +" "+ work.root.rstrip("/") +"/profiles/package.use/")
     if(len(cb_uses) > 0):
       for cb_use in cb_uses:
-	pkgName = cb_use[0] +"/"+ cb_use[1]
-	os.system("sed -i \'/"+ cb_use[0] +"\\/"+ cb_use[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.use/" + funtoo_use.split("/")[-1])
+	if(cb_use):
+	  pkgName = cb_use[0] +"/"+ cb_use[1]
+	  os.system("sed -i \'/"+ cb_use[0] +"\\/"+ cb_use[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.use/" + funtoo_use.split("/")[-1])
       
 
 
