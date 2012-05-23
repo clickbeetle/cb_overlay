@@ -2,3 +2,4 @@
 # Added by shrinidhi rao <shrinidhi@clickbeetle.in>
 #>=media-sound/pulseaudio-1.99.2
 #>=sys-kernel/gentoo-sources-3.4*
+>=net-fs/samba-4.0.0
