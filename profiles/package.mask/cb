@@ -5,3 +5,4 @@
 >=net-fs/samba-4.0.0
 >=dev-lang/python-3.2.4
 >=dev-lang/python-2.7.4
+>sys-kernel/genkernel-3.4.30_beta1
