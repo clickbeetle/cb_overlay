@@ -41,6 +41,7 @@ fi
 # Create $PARENT_FILE if it doesn't exist.
 if [[ ! -e "${PARENT_FILE}" ]] ; then
 	touch "${PARENT_FILE}" || die -q "Error creating ${PARENT_FILE}"
+	chmod 644 "${PARENT_FILE}"
 fi
 
 ### HELPER FUNCTIONS ###
@@ -105,6 +106,14 @@ check_for_nomix() {
 			done
 		done
 	fi
+}
+
+# PUBLIC
+# Creates and returns temporary file using mktemp and sets permissions to 644
+create_temp_file() {
+	local temp_file="$(mktemp)"
+	chmod 644 "${temp_file}"
+	echo "${temp_file}"
 }
 
 # PUBLIC
@@ -228,8 +237,8 @@ is_profile_set() {
 }
 
 # PUBLIC
-# Checks if parent file is valid. Returns "True" if valid, "False" if not.
-# $1 = "print_warn" If $1 is set to "print_warn" then print warning messages
+# Checks if parent file is valid.
+# $1 = "print_warn" If $1 is set to "print_warn" then print warning messages. If not set then just return "False" if anything in parent is invalid
 validate_parent_file() {
 	local print_warn
 	if [[ "${1}" == "print_warn" ]] ; then
@@ -300,6 +309,23 @@ validate_parent_file() {
 		fi
 		if [[ "${mixed_profiles}" == "True" ]] ; then
 			write_warning_msg "It is not recommended to mix the old style monolithic profiles with the new style multi profile ones"
+		fi
+	else
+		if (( ${#invalid_profiles} > 0 )) ; then
+			echo "False"
+			return
+		fi
+		if (( ${#no_profile} > 0 )) ; then
+			echo "False"
+			return
+		fi
+		if (( ${#extra_profiles} > 0 )) ; then
+			echo "False"
+			return
+		fi
+		if [[ "${mixed_profiles}" == "True" ]] ; then
+			echo "False"
+			return
 		fi
 	fi
 }
@@ -373,7 +399,7 @@ add_profile() {
 	local nomix=( $(check_for_nomix "${pro_to_add}") )
 	if [[ -n "${nomix}" ]] ; then
 		if [[ -z "${FORCE_ADD}" ]] ; then
-			die -q "Current profile contains the profile(s) '${nomix[@]}' which should not be used with '${pro_to_add}'. Use --force to override"
+			die -q "Current profile contains the profile(s) '${nomix[@]}' which should not be used with '${pro_to_add}'. Use -f to override"
 		fi
 	fi
 
@@ -383,7 +409,7 @@ add_profile() {
 
 	# Loop through current profiles and add new one in right place
 	local now_set="False"
-	local temp_file="$(mktemp)"
+	local temp_file="$(create_temp_file)"
 	for current_pro in $(get_currently_set_profiles) ; do
 		# Same as above, assign value to profile type
 		local current_type="$(get_profile_type ${current_pro})"
@@ -393,7 +419,7 @@ add_profile() {
 			if [[ "${pro_to_add_type}" == "${profile_type}" && "${pro_to_add_type}" == "${current_type}" ]] ; then
 				if [[ -z "${FORCE_ADD}" ]] ; then
 					rm "${temp_file}"
-					die -q "Your profile already contains a '${pro_to_add_type}' type profile. You should only have one set. Either use replace action or if you know what your doing you can override with '--force'"
+					die -q "Your profile already contains a '${pro_to_add_type}' type profile. You should only have one set. Either use replace action or if you know what your doing you can override with '-f'"
 				fi
 			fi
 		done
@@ -422,7 +448,7 @@ add_profile() {
 # PUBLIC
 # Description of add action
 describe_add() {
-	echo "Adds a profile. Usage: eselect profile add <profile>"
+	echo "Adds a profile. Usage: eselect profile add [-fq] <profile>"
 }
 
 # PUBLIC
@@ -430,16 +456,30 @@ describe_add() {
 do_add() {
 	# Parse cli args
 	FORCE_ADD=""
-	if [[ "${1}" == "--force" ]] ; then
-		FORCE_ADD="--force"
-		shift
-	fi
+	QUIET=""
+	while getopts ":fq" option ; do
+		case ${option} in
+			f)
+				FORCE_ADD="--force"
+				;;
+			q)
+				QUIET="True"
+				;;
+			*)
+				echo "Unrecognized option, use -q for quiet, -f for force"
+				;;
+		esac
+	done
+	# Remove option args
+	shift $(($OPTIND - 1))
 
 	if [[ -z "${1}" ]] ; then
 		die -q "You didn't tell me what profile to add"
 	else
 		add_profile "${1}"
-		validate_parent_file "print_warn"
+		if [[ -z "${QUIET}" ]] ; then
+			validate_parent_file "print_warn"
+		fi
 	fi
 }
 
@@ -450,7 +490,7 @@ do_add() {
 # $1 = "-p" || "--pretend" If set just prints what new $PARENT_FILE would contain
 clean_profiles() {
 	# Need temporary parent file
-	local temp_parent_file="$(mktemp)"
+	local temp_parent_file="$(create_temp_file)"
 
 	# Get rid of any invalid profiles.
 	for profile in $(get_currently_set_profiles) ; do
@@ -468,7 +508,7 @@ clean_profiles() {
 	local current_profiles_copy=( $(get_currently_set_profiles) )
 
 	# Loop through valid profile types and current profiles to add in right place
-	local temp_file=$(mktemp)
+	local temp_file=$(create_temp_file)
 	for (( x=0; x<${#VALID_PROFILE_TYPES[@]}; x++ )) ; do
 		local valid_type="${VALID_PROFILE_TYPES[${x}]}"
 		for profile in $(get_currently_set_profiles) ; do
@@ -498,6 +538,7 @@ clean_profiles() {
 	PARENT_FILE="${orig_parent_file}"
 	if [[ "${PRETEND_CLEAN}" == "True" ]] ; then
 		echo
+		# TODO: use diff instead
 		write_list_start "If cleaned, parent file would contain:"
 		for profile in $(cat ${temp_file}) ; do
 			echo -e "\t${profile}"
@@ -514,18 +555,33 @@ clean_profiles() {
 # PUBLIC
 # Description of clean action
 describe_clean() {
-	echo "Removes any invalid profiles that are set. Use '-p' or '--pretend' to check what would be removed. "
+	echo "Removes any invalid profiles that are set. Use '-p' to check what would be removed. Usage: eselect profile clean [-pq]"
 }
 
 # PUBLIC
 # Called by eselect when passed clean as action
 do_clean() {
-	if [[ "${1}" == "-p" || "${1}" == "--pretend" ]] ; then
-		PRETEND_CLEAN="True"
-		clean_profiles
-	else
-		PRETEND_CLEAN="False"
-		clean_profiles
+		# Parse cli args
+	QUIET=""
+	PRETEND_CLEAN=""
+	while getopts ":pq" option ; do
+		case ${option} in
+			p)
+				PRETEND_CLEAN="True"
+				;;
+			q)
+				QUIET="True"
+				;;
+			*)
+				echo "Unrecognized option, use -p for pretend, -q for quiet"
+				;;
+		esac
+	done
+	# Remove option args
+	shift $(($OPTIND - 1))
+
+	clean_profiles
+	if [[ -z "${QUIET}" ]] ; then
 		validate_parent_file "print_warn"
 	fi
 }
@@ -628,14 +684,30 @@ write_numbered_profile_list() {
 # PUBLIC
 # Description of list action
 describe_list() {
-	echo "List available profile targets. Usage: eselect profile list [profile_type]"
+	echo "List available profile targets. Usage: eselect profile list [-q] [profile_type]"
 }
 
 # PUBLIC
 # Called by eselect when passed list as action
 do_list() {
+	QUIET=""
+	while getopts ":q" option ; do
+		case ${option} in
+			q)
+				QUIET="True"
+				;;
+			*)
+				echo "Unrecognized option, use -q for quiet"
+				;;
+		esac
+	done
+	# Remove option args
+	shift $(($OPTIND - 1))
+
 	write_numbered_profile_list "${1}"
-	validate_parent_file "print_warn"
+	if [[ -z "${QUIET}" ]] ; then
+		validate_parent_file "print_warn"
+	fi
 }
 
 ### REMOVE ACTION ###
@@ -647,7 +719,7 @@ remove_profile() {
 	fi
 
 	local found_pro="False"
-	local temp_file="$(mktemp)"
+	local temp_file="$(create_temp_file)"
 	for profile in $(get_currently_set_profiles); do
 		if [[ "${profile}" == ${pro_to_remove} ]] ; then
 			found_pro="True"
@@ -668,17 +740,33 @@ remove_profile() {
 # PUBLIC
 # Description of remove action
 describe_remove() {
-	echo "Removes a profile. Usage: eselect profile remove <profile>"
+	echo "Removes a profile. Usage: eselect profile remove [-q] <profile>"
 }
 
 # PUBLIC
 # Called by eselect when passed remove as action
 do_remove() {
+	QUIET=""
+	while getopts ":q" option ; do
+		case ${option} in
+			q)
+				QUIET="True"
+				;;
+			*)
+				echo "Unrecognized option, use -q for quiet"
+				;;
+		esac
+	done
+	# Remove option args
+	shift $(($OPTIND - 1))
+
 	if [[ -z "${1}" ]] ; then
 		die -q "You didn't tell me what profile to remove"
 	else
 		remove_profile "${1}"
-		validate_parent_file "print_warn"
+		if [[ -z "${QUIET}" ]] ; then
+			validate_parent_file "print_warn"
+		fi
 	fi
 }
 
@@ -701,7 +789,7 @@ replace_profile() {
 	fi
 
 	# Copy original parent file to temp location before removing old profile, that way if something goes wrong we can restore it
-	local orig_parent_file="$(mktemp)"
+	local orig_parent_file="$(create_temp_file)"
 	cp "${PARENT_FILE}" "${orig_parent_file}"
 	remove_profile "${old_profile}"
 
@@ -714,7 +802,7 @@ replace_profile() {
 	# Check for NoMix
 	local nomix=( $(check_for_nomix ${new_profile}) )
 	if [[ -n "${nomix}" ]] ; then
-		if [[ -z "${FORCE_ADD}" ]] ; then
+		if [[ -z "${FORCE_REPLACE}" ]] ; then
 			mv "${orig_parent_file}" "${PARENT_FILE}"
 			die -q "Current profile contains the profile(s) '${nomix[@]}' which should not be used with '${new_profile}'. Use --force to override"
 		fi
@@ -726,7 +814,7 @@ replace_profile() {
 
 	# Loop through current profiles and decide where to add new one.
 	local now_set="False"
-	local temp_file="$(mktemp)"
+	local temp_file="$(create_temp_file)"
 	for current_pro in $(get_currently_set_profiles) ; do
 		# Assign value to profile type
 		local current_type="$(get_profile_type ${current_pro})"
@@ -738,7 +826,7 @@ replace_profile() {
 				if [[ -z "${FORCE_REPLACE}" ]] ; then
 					rm "${temp_file}"
 					mv "${orig_parent_file}" "${PARENT_FILE}"
-					die -q "Your profile already contains a '${new_profile_type}' type profile. You should only have one set. Either use replace action or if you know what your doing you can override with '--force'"
+					die -q "Your profile already contains a '${new_profile_type}' type profile. You should only have one set. Either use replace action or if you know what your doing you can override with '-f'"
 				fi
 			fi
 		done
@@ -774,7 +862,7 @@ replace_profile() {
 # PUBLIC
 # Description of replace action
 describe_replace() {
-	echo "Replaces a profile. Usage: eselect profile replace <old_profile> <new_profile>"
+	echo "Replaces a profile. Usage: eselect profile replace [-fq] <old_profile> <new_profile>"
 }
 
 # PUBLIC
@@ -782,16 +870,30 @@ describe_replace() {
 do_replace() {
 	# Parse cli args
 	FORCE_REPLACE=""
-	if [[ "${1}" == "--force" ]] ; then
-		FORCE_REPLACE="--force"
-		shift
-	fi
+	QUIET=""
+	while getopts ":fq" option ; do
+		case ${option} in
+			f)
+				FORCE_REPLACE="True"
+				;;
+			q)
+				QUIET="True"
+				;;
+			*)
+				echo "Unrecognized option, use -q for quiet, -f for force"
+				;;
+		esac
+	done
+	# Remove option args
+	shift $(($OPTIND - 1))
 
 	if (( $# < 2 )) ; then
-		die -q "The replace action requires 2 arguments. Usage: eselect profile replace <old_profile> <new_profile>"
+		die -q "The replace action requires 2 arguments. Usage: eselect profile replace [-fq] <old_profile> <new_profile>"
 	else
 		replace_profile "${1}" "${2}"
-		validate_parent_file "print_warn"
+		if [[ -z "${QUIET}" ]] ; then
+			validate_parent_file "print_warn"
+		fi
 	fi
 }
 
@@ -812,12 +914,28 @@ show_profiles() {
 # PUBLIC
 # Description of show action
 describe_show() {
-	echo "Displays list of profiles that are currently set"
+	echo "Displays list of profiles that are currently set. Usage eselect profile show [-q]"
 }
 
 # PUBLIC
 # Called by eselect when passed show as action
 do_show() {
+	QUIET=""
+	while getopts ":q" option ; do
+		case ${option} in
+			q)
+				QUIET="True"
+				;;
+			*)
+				echo "Unrecognized option, use -q for quiet"
+				;;
+		esac
+	done
+	# Remove option args
+	shift $(($OPTIND - 1))
+
 	show_profiles
-	validate_parent_file "print_warn"
+	if [[ -z "${QUIET}" ]] ; then
+		validate_parent_file "print_warn"
+	fi
 }
