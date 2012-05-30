@@ -375,3 +375,8 @@ x11-libs/qt-xmlpatterns
 # Kdenlive
 media-video/kdenlive
 media-libs/mlt
+media-libs/gavl
+dev-libs/liboil
+media-plugins/frei0r-plugins
+media-libs/swfdec
+
