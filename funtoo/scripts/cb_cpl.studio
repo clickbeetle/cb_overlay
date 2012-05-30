@@ -300,6 +300,11 @@ www-client/seamonkey
 #vlc
 media-video/vlc
 
+
+# Amarok
+media-sound/amarok
+
+
 #mplayer nsplugins
 www-plugins/gecko-mediaplayer
 media-video/gnome-mplayer
@@ -336,6 +341,7 @@ media-gfx/pencil
 app-office/calligra
 app-office/calligra-l10n
 media-gfx/pencil
+media-gfx/mypaint
 
 #Raw photo editing
 media-libs/libiptcdata
@@ -365,4 +371,7 @@ x11-libs/qt-svg
 x11-libs/qt-test
 x11-libs/qt-webkit
 x11-libs/qt-xmlpatterns
+
+# Kdenlive
+media-video/kdenlive
 
