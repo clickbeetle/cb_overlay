@@ -15,3 +15,7 @@ net-im/qipmsg
 sys-apps/shadow
 www-apps/owncloud
 www-servers/uwsgi
+dev-util/cuda-init-script
+dev-util/nvidia-cuda-sdk
+dev-util/nvidia-cuda-tdk
+dev-util/nvidia-cuda-toolkit
