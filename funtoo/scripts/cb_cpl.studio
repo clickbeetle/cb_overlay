@@ -383,3 +383,7 @@ media-libs/swfdec
 # Wine
 app-emulation/wine
 
+# recordMyDesktop
+media-video/recordmydesktop
+media-video/qt-recordmydesktop
+

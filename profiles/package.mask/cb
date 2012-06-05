@@ -6,3 +6,4 @@
 >=dev-lang/python-3.2.4:3.2
 >=dev-lang/python-2.7.4:2.7
 >sys-kernel/genkernel-3.4.30_beta1
+>=sys-kernel/gentoo-sources-3.4.0
