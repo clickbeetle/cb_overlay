@@ -380,3 +380,6 @@ dev-libs/liboil
 media-plugins/frei0r-plugins
 media-libs/swfdec
 
+# Wine
+app-emulation/wine
+
