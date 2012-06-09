@@ -31,7 +31,7 @@ if(len(eBuildList) > 0):
     ProfileDepFix(),
     SyncDir(cb_ports.root,"licenses"),
     SyncDir(cb_ports.root,"eclass"),
-    SyncDir(cb_ports.root,"profiles"),
+    SyncDir(cb_ports.root,"profiles", exclude=["repo_name","categories","package.mask","package.unmask","package.use"]),
     InsertEbuilds(cb_ports,select=eBuildList,replace=True),
     Minify(),
     GenCache()

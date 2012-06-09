@@ -296,6 +296,8 @@ virtual/pkgconfig
 mail-client/thunderbird
 www-client/firefox
 www-client/seamonkey
+dev-libs/nspr
+dev-libs/nss
 
 #vlc
 media-video/vlc
