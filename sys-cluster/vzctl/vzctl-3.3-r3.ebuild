@@ -1,11 +1,10 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation, Funtoo Technologies
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="4"
 
 GITHUB_USER="funtoo"
 GITHUB_TAG="${PF}-funtoo"
-SRC_URI="https://github.com/${GITHUB_USER}/${PN}/tarball/${GITHUB_TAG} -> ${GITHUB_TAG}.tar.gz"
 
 inherit bash-completion-r1 eutils
 
