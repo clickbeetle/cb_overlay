@@ -1,19 +1,18 @@
 # Keeep the most recent masks in a reverse chrono order
 # newest on top
 
-# Martin Scholz (15 Jun 2012)
-# masking nginx 1.3.1 for testing, 1.3.0 is still included
-# if no errors are repoted till 21 Jun 2012 nginx 1.3.1 will hit current
-# another 3 weeks later it will be in stable
->=www-servers/nginx-1.3.0
+# Martin Scholz (03 Jul 2012)
+# masking polkit and udisks responsible for build failings
+>sys-auth/polkit-0.104-r1
+>sys-fs/udisks-1.97.0-r1
 
-# Daniel Robbins (09 Jan 2012)
-# Masked for testin
->=sys-apps/baselayout-2.2.0
+# Oleg Vinichenko ( 22 Jun 2012)
+# # masked portage-2.3.4-r5, only for testing funtoo-1.0 profile
+>=sys-apps/portage-2.3.4-r6
 
-# Daniel Robbins (09 Jun 2012)
-# Masked for testing
->=sys-apps/openrc-0.10.2
+# Ryan Harris (21 Jun 2012)
+# Mask new boot-update. Needs testing
+>=sys-boot/boot-update-1.6.0
 
 # Oleg Vinichenko (6 Jun 2012)
 # Mask latest openvz stable kernels, due to unresolved udev bug
@@ -22,7 +21,7 @@
 
 # Martin Scholz (02 Jun 2012)
 # Masked for testing
-=net-libs/nodejs-0.6.18
+>=net-libs/nodejs-0.6.18
 
 # Masking of libreoffice-bin > 3.5.* as needing toolchain upgrade
 >=app-office/libreoffice-bin-3.5
