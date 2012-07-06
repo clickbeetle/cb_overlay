@@ -308,6 +308,7 @@ media-sound/amarok
 
 
 #mplayer nsplugins
+media-video/mplayer2
 www-plugins/gecko-mediaplayer
 media-video/gnome-mplayer
 media-libs/gmtk
