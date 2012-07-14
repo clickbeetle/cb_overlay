@@ -1,6 +1,10 @@
 # Keeep the most recent masks in a reverse chrono order
 # newest on top
 
+# Ole gVinichenko (13 Jul 2012)
+# FL-41, a new lvm2 ebuild, hardmasked for testing
+>=sys-fs/lvm2-2.02.95
+
 # Martin Scholz (03 Jul 2012)
 # masking polkit and udisks responsible for build failings
 >sys-auth/polkit-0.104-r1
@@ -8,10 +12,6 @@
 # Ryan Harris (21 Jun 2012)
 # Mask new boot-update. Needs testing
 >=sys-boot/boot-update-1.6.0
-
-# Martin Scholz (02 Jun 2012)
-# Masked for testing
->=net-libs/nodejs-0.6.18
 
 # Masking of libreoffice-bin > 3.5.* as needing toolchain upgrade
 >=app-office/libreoffice-bin-3.5
