@@ -1,1 +1,0 @@
-python-novaclient-9999.ebuild

@@ -1,5 +1,0 @@
-ELIBC="glibc"
-KERNEL="linux"
-USERLAND="GNU"
-LDFLAGS="-Wl,-O1 -Wl,--sort-common -Wl,--as-needed"
-USE="$USE kernel_linux userland_GNU elibc_glibc"
