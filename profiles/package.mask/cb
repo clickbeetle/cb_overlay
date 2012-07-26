@@ -4,3 +4,7 @@
 >=dev-lang/python-3.2.4:3.2
 >=dev-lang/python-2.7.4:2.7
 >=sys-kernel/gentoo-sources-3.1.10
+=dev-lang/python-2.7.4_pre*
+=dev-lang/python-3.2.4_pre*
+=dev-lang/python-3.3_pre*
+sys-apps/man

@@ -1,7 +1,2 @@
-dev-libs/libgcrypt static static-libs
-dev-libs/popt static-libs
-dev-libs/libgpg-error static-libs
-sys-fs/cryptsetup static static-libs
-sys-libs/e2fsprogs-libs static-libs
-sys-apps/util-linux static-libs
 x11-libs/qt-sql mysql odbc postgres 
+sys-apps/net-tools old-output
