@@ -39,7 +39,7 @@ if(len(eBuildList) > 0):
 
 ## work tree is a non-git tree in tmpfs for enhanced performance - we do all the heavy lifting there:
 
-  work = UnifiedTree("/dev/shm/merge-%s" % os.path.basename(dest[0]),steps)
+  work = UnifiedTree("/tmp/merge-%s" % os.path.basename(dest[0]),steps)
   work.run()
 
   steps = [
