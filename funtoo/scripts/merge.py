@@ -14,7 +14,7 @@ steps = [
 	ThirdPartyMirrors(),
 	SyncDir(funtoo_overlay.root,"profiles","profiles", exclude=["repo_name","categories"]),
 	ProfileDepFix(),
-	SyncDir(funtoo_overlay.root,"licenses"),
+	#SyncDir(funtoo_overlay.root,"licenses"),
 	SyncDir(funtoo_overlay.root,"eclass"),
 	SyncDir(funtoo_overlay.root,"metadata"),
 	InsertEbuilds(funtoo_overlay, select="all", skip=None, replace=True),
