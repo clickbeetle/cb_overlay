@@ -3,13 +3,10 @@
 
 from merge_utils import *
 
-
-print branch
 progPath =  sys.argv[0].split("/")
 cwd = os.getcwd()
 if(len(progPath) > 1):
   pwd = "/".join(progPath[0:-1])
-  print pwd
   cwd = cwd.rstrip("/") +"/"+ pwd
 else:
   cwd = os.getcwd()
