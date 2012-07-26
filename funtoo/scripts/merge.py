@@ -10,7 +10,7 @@ flora_overlay = Tree("flora", "master", "git://github.com/funtoo/flora.git", pul
 
 steps = [
 	SyncTree(gentoo_src,exclude=["/metadata/cache/**","ChangeLog", "dev-util/metro"]),
-	ApplyPatchSeries("%s/funtoo/patches" % funtoo_overlay.root ),
+	#ApplyPatchSeries("%s/funtoo/patches" % funtoo_overlay.root ),
 	ThirdPartyMirrors(),
 	SyncDir(funtoo_overlay.root,"profiles","profiles", exclude=["repo_name","categories"]),
 	ProfileDepFix(),
