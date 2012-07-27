@@ -1,2 +1,3 @@
 x11-libs/qt-sql mysql odbc postgres 
 sys-apps/net-tools old-output
+sys-libs/zlib minizip
