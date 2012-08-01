@@ -4,7 +4,7 @@
 #add the latest one on the top
 
 >=x11-base/xorg-server-1.12.99.903
->=net-fs/samba-4.0.0
+>=net-fs/samba-4.0.0_alpha*
 >=dev-lang/python-3.2.4:3.2
 >=dev-lang/python-2.7.4:2.7
 >=sys-kernel/gentoo-sources-3.1.10
