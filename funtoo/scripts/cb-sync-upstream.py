@@ -14,18 +14,39 @@ else:
   cwd = os.getcwd()
   
 eBuildList = []
-ebFile = open(cwd +"/cb-sync-upstream.exclude","r")
-for ebl in ebFile.readlines():
-  if(re.match(r'^\s*$',ebl)):
-    continue
-  if(ebl.find("#") == 0):
-    continue
-  eBuildList.append(ebl.rstrip().lstrip())
+
+if(os.path.exists(cwd +"/cb-sync-upstream.include")):
+  ebFile = open(cwd +"/cb-sync-upstream.include","r")
+else:
+  ebFile = open(cwd +"/cb-sync-upstream.exclude","r")
+if(ebFile):
+  for ebl in ebFile.readlines():
+    if(re.match(r'^\s*$',ebl)):
+      continue
+    if(ebl.find("#") == 0):
+      continue
+    eBuildList.append(ebl.rstrip().lstrip())
   
 cb_overlay = Tree("cb-overlay","master", "git://github.com/clickbeetle/cb_overlay.git", pull=True)
 funtoo_overlay = Tree("funtoo-overlay", "master", "git://github.com/funtoo/funtoo-overlay.git", pull=True)
 
 
+
+
+if(os.path.exists(cwd +"/cb-sync-upstream.include")):
+  steps = [
+    GitPull(branch),
+    SyncTree(cb_overlay,delete=True),
+    InsertEbuilds(funtoo_overlay,select=eBuildList,replace=True)
+    GenCache()
+  ]
+  
+  for des in dest:
+    d = des.rstrip("/")
+    work = UnifiedTree(d,steps)
+    work.run()
+    work.gitCommit(message="sync upstream funtoo-overlay updates",push=push)
+  sys.exit(0)
 
 
 
@@ -71,7 +92,7 @@ print("FOR DELETE : "+ str(ebDel))
 
 steps = [
   GitPull(branch),
-  SyncTree(cb_overlay),
+  SyncTree(cb_overlay,delete=True),
   SyncDir(funtoo_overlay.root,"licenses"),
   SyncDir(funtoo_overlay.root,"eclass"),
   SyncDir(funtoo_overlay.root,"metadata"),
@@ -114,9 +135,9 @@ for des in dest:
     if(len(cb_masks) > 0):
       print cb_masks
       for cb_mask in cb_masks:
-	if(cb_mask):
-	  pkgName = cb_mask[0] +"/"+ cb_mask[1]
-	  os.system("sed -i \'/"+ cb_mask[0] +"\\/"+ cb_mask[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.mask/" + funtoo_mask.split("/")[-1])
+        if(cb_mask):
+          pkgName = cb_mask[0] +"/"+ cb_mask[1]
+          os.system("sed -i \'/"+ cb_mask[0] +"\\/"+ cb_mask[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.mask/" + funtoo_mask.split("/")[-1])
       
       
 
@@ -133,9 +154,9 @@ for des in dest:
     os.system("rsync -av --delete-after "+ funtoo_unmask +" "+ work.root.rstrip("/") +"/profiles/package.unmask/")
     if(len(cb_unmasks) > 0):
       for cb_unmask in cb_unmasks:
-	if(cb_unmask):
-	  pkgName = cb_unmask[0] +"/"+ cb_unmask[1]
-	  os.system("sed -i \'/"+ cb_unmask[0] +"\\/"+ cb_unmask[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.unmask/" + funtoo_unmask.split("/")[-1])
+        if(cb_unmask):
+          pkgName = cb_unmask[0] +"/"+ cb_unmask[1]
+          os.system("sed -i \'/"+ cb_unmask[0] +"\\/"+ cb_unmask[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.unmask/" + funtoo_unmask.split("/")[-1])
       
       
       
@@ -153,10 +174,10 @@ for des in dest:
     os.system("rsync -av --delete-after "+ funtoo_use +" "+ work.root.rstrip("/") +"/profiles/package.use/")
     if(len(cb_uses) > 0):
       for cb_use in cb_uses:
-	if(cb_use):
-	  pkgName = cb_use[0] +"/"+ cb_use[1]
-	  os.system("sed -i \'/"+ cb_use[0] +"\\/"+ cb_use[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.use/" + funtoo_use.split("/")[-1])
-      
+        if(cb_use):
+          pkgName = cb_use[0] +"/"+ cb_use[1]
+          os.system("sed -i \'/"+ cb_use[0] +"\\/"+ cb_use[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.use/" + funtoo_use.split("/")[-1])
+          
 
 
 

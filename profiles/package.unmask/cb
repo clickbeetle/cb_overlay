@@ -1,2 +1,11 @@
+# Any clickbeetle related masks go here
+# Added by shrinidhi rao <shrinidhi@clickbeetle.in>
 
+# ANY TOOLCHAIN RELATED MASKS GO HERE 
+# note: this should be always the last section
 sys-devel/gcc:4.6
+=sys-devel/binutils-2.21*
+=sys-kernel/linux-headers-3.4*
+=sys-libs/glibc-2.14*
+=sys-fs/udev-171*
+
