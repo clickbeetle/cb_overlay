@@ -1,6 +1,6 @@
 #!/usr/bin/python2
 
-import os,sys,types
+import os,sys,types,re
 import argparse
 import commands
 import shutil
