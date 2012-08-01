@@ -4,6 +4,7 @@ import os,sys,types,re
 import argparse
 import commands
 import shutil
+import portage
 
 debug = False
 
