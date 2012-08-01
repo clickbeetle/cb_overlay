@@ -38,7 +38,7 @@ if(os.path.exists(cwd +"/cb-sync-upstream.include")):
     GitPull(branch),
     SyncTree(cb_overlay),
     InsertEbuilds(funtoo_overlay,select=eBuildList,replace=True),
-    GenCache()
+#    GenCache()
   ]
   
   for des in dest:
