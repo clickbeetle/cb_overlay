@@ -37,7 +37,7 @@ if(os.path.exists(cwd +"/cb-sync-upstream.include")):
   steps = [
     GitPull(branch),
     SyncTree(cb_overlay),
-    InsertEbuilds(funtoo_overlay,select=eBuildList,replace=True)
+    InsertEbuilds(funtoo_overlay,select=eBuildList,replace=True),
     GenCache()
   ]
   
