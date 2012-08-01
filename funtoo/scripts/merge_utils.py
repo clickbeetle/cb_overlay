@@ -5,6 +5,7 @@ import argparse
 import commands
 import shutil
 import portage
+import glob
 
 debug = False
 
