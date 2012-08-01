@@ -36,7 +36,7 @@ funtoo_overlay = Tree("funtoo-overlay", "master", "git://github.com/funtoo/funto
 if(os.path.exists(cwd +"/cb-sync-upstream.include")):
   steps = [
     GitPull(branch),
-    SyncTree(cb_overlay,delete=True),
+    SyncTree(cb_overlay),
     InsertEbuilds(funtoo_overlay,select=eBuildList,replace=True)
     GenCache()
   ]
@@ -92,7 +92,7 @@ print("FOR DELETE : "+ str(ebDel))
 
 steps = [
   GitPull(branch),
-  SyncTree(cb_overlay,delete=True),
+  SyncTree(cb_overlay),
   SyncDir(funtoo_overlay.root,"licenses"),
   SyncDir(funtoo_overlay.root,"eclass"),
   SyncDir(funtoo_overlay.root,"metadata"),

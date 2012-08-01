@@ -110,7 +110,7 @@ for gentoo_use in gentoo_uses:
 
 steps = [
   GitPrep(branch),
-  SyncTree(work,delete=True)
+  SyncTree(work)
 ]
 
 # then for the production tree, we rsync all changes on top of our prod git tree and commit:
