@@ -1,3 +1,6 @@
 # to fix issue with stage1 builds. We need threads.
 dev-lang/python threads
 dev-lang/perl -build
+sys-libs/zlib static-libs
+dev-libs/openssl static-libs
+net-misc/wget static
