@@ -11,3 +11,4 @@
 ~sys-apps/net-tools-9999 
 ~net-misc/iputils-99999999
 ~dev-util/strace-9999
+>=dev-python/setuptools-9999
