@@ -43,6 +43,7 @@ RDEPEND="
 	!<sys-libs/pam-0.99.9.0-r1"
 DEPEND="app-portage/portage-utils"
 
+KEYWORDS="~amd64"
 src_compile() {
 	local implementation=
 	local linux_pam_version=
