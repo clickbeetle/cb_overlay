@@ -113,14 +113,14 @@ gentoo_use_desc = gentoo_src.root.rstrip("/") + "/profiles/use.desc"
 work_use_desc = work.root.rstrip("/") +"/profiles/use.desc"
 os.system("cat "+ cb_use_desc +" | grep -iv ^# > "+ work_use_desc)
 os.system("cat "+ gentoo_use_desc +" | grep -iv ^# >> "+ work_use_desc)
-os.system("sort "+ work_use_desc +" > "+ work_use_desc)
+os.system("sort "+ work_use_desc +" -o "+ work_use_desc)
 
 cb_local_use_desc = cb_overlay.root.rstrip("/") + "/profiles/use.local.desc"
 gentoo_local_use_desc = gentoo_src.root.rstrip("/") + "/profiles/use.local.desc"
 work_local_use_desc = work.root.rstrip("/") +"/profiles/use.local.desc"
 os.system("cat "+ cb_local_use_desc +" | grep -iv ^# > "+ work_local_use_desc)
 os.system("cat "+ gentoo_local_use_desc +" | grep -iv ^# >> "+ work_local_use_desc)
-os.system("sort "+ work_local_use_desc +" > "+ work_local_use_desc)
+os.system("sort "+ work_local_use_desc +" -o "+ work_local_use_desc)
 
 
 steps = [
