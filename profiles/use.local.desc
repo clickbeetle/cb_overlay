@@ -1,0 +1,1 @@
+sys-auth/pambase:laplogin - Enable pambase to install a system-auth file for easy ldap support for logins
