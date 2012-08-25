@@ -338,6 +338,8 @@ dev-db/mysql-workbench
 
 # graphics utils
 media-gfx/gimp
+media-libs/gegl
+media-libs/babl
 media-plugins/gimp-gmic
 media-gfx/gimp-arrow-brushes
 media-gfx/pencil
