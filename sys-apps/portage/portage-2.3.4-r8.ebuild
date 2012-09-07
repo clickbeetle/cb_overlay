@@ -32,7 +32,7 @@ DEPEND="${python_dep}
 RDEPEND="${python_dep}
 	!build? ( >=sys-apps/sed-4.0.5
 		>=app-shells/bash-3.2_p17
-		>=app-admin/eselect-1.3.1.1_rc2 )
+		>=app-admin/select-1.2 )
 	elibc_FreeBSD? ( sys-freebsd/freebsd-bin )
 	elibc_glibc? ( >=sys-apps/sandbox-2.2 )
 	elibc_uclibc? ( >=sys-apps/sandbox-2.2 )
