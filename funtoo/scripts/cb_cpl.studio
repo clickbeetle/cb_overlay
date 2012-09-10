@@ -348,6 +348,14 @@ app-office/calligra
 app-office/calligra-l10n
 media-gfx/pencil
 media-gfx/mypaint
+app-office/scribus
+app-text/podofo
+media-gfx/hugin
+media-gfx/luminance-hdr
+media-gfx/autopano-sift-C
+media-gfx/enblend
+media-libs/libpano13
+
 
 #Raw photo editing
 media-libs/libiptcdata
