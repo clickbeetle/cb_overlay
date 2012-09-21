@@ -317,6 +317,8 @@ media-libs/gmtk
 #kernels and its tools
 sys-kernel/genkernel
 sys-kernel/gentoo-sources
+app-admin/eclean-kernel
+dev-python/pymountboot
 
 #chromium and its deps
 www-client/chromium
