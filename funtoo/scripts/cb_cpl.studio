@@ -319,6 +319,7 @@ sys-kernel/genkernel
 sys-kernel/gentoo-sources
 app-admin/eclean-kernel
 dev-python/pymountboot
+sys-apps/hwids
 
 #chromium and its deps
 www-client/chromium
