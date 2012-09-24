@@ -1,5 +1,7 @@
 sys-apps/portage
 app-portage/portage-utils
+app-admin/eselect
+
 # kde updates added by shrinidhi@clickbeetle.in
 kde-base/kdeplasma-addons
 kde-base/kde-l10n
