@@ -9,6 +9,7 @@
 # releases.  PLEASE DO NOT ENABLE THIS UNLESS YOU HAVE THOROUGHLY TESTED IT!
 
 app-arch/bzip2
+app-arch/xz-utils
 app-arch/gzip
 app-arch/tar
 dev-util/yacc
