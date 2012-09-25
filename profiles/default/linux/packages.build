@@ -15,6 +15,7 @@ dev-util/yacc
 app-shells/bash
 net-misc/rsync
 dev-libs/openssl
+dev-libs/mpc
 net-misc/wget
 sys-devel/autoconf
 sys-devel/automake
