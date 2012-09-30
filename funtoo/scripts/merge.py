@@ -14,12 +14,7 @@ steps = [
   
   # masking this untill i get a good bandwidth to host distfiles
   #ThirdPartyMirrors(),
-  SyncDir(cb_overlay.root,"profiles","profiles", exclude=["repo_name","categories"]),
-  ProfileDepFix(),
-  #SyncDir(cb_overlay.root,"licenses"),
-  SyncDir(cb_overlay.root,"eclass"),
-  SyncDir(cb_overlay.root,"metadata"),
-  InsertEbuilds(cb_overlay, select="all", skip=None, replace=True),
+  
   InsertEbuilds(foo_overlay, select="all", skip=None, replace=["app-shells/rssh","net-misc/unison"]),
   InsertEbuilds(bar_overlay, select="all", skip=None, replace=True),
   InsertEbuilds(flora_overlay, select="all", skip=None, replace=False)
@@ -36,10 +31,17 @@ steps.extend((
         "profiles/package.mask":"profiles/package.mask/progress",
         "profiles/use.mask":"profiles/use.mask/progress"
     }),
+    SyncDir(cb_overlay.root,"profiles","profiles", exclude=["repo_name","categories"]),
+    
+    #SyncDir(cb_overlay.root,"licenses"),
+    SyncDir(cb_overlay.root,"eclass"),
+#    SyncDir(cb_overlay.root,"metadata"),
+    InsertEbuilds(cb_overlay, select="all", skip=None, replace=True),
     InsertEbuilds(progress_overlay, select="all", skip=None, replace=True, merge=["dev-lang/python", "dev-libs/boost", "dev-python/psycopg", "dev-python/pysqlite", "dev-python/python-docs", "dev-python/simpletal", "dev-python/wxpython", "x11-libs/vte"])
 ))
 
 steps.extend((
+  ProfileDepFix(),
   Minify(),
   GenCache()
 ))
