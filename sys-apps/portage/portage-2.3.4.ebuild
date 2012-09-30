@@ -11,9 +11,9 @@ LICENSE="GPL-2"
 KEYWORDS="*"
 SLOT="0"
 IUSE="build doc epydoc +ipc linguas_pl python2 python3 selinux"
-GITHUB_REPO="portage-funtoo"
-GITHUB_USER="funtoo"
-GITHUB_TAG="funtoo-${PVR}"
+GITHUB_REPO="portage-cb"
+GITHUB_USER="cb"
+GITHUB_TAG="cb-${PVR}"
 RESTRICT="mirror"
 
 python_dep="python3? ( =dev-lang/python-3* )
@@ -32,7 +32,7 @@ DEPEND="${python_dep}
 RDEPEND="${python_dep}
 	!build? ( >=sys-apps/sed-4.0.5
 		>=app-shells/bash-3.2_p17
-		>=app-admin/eselect-1.2 )
+		>=app-admin/eselect-1.3.1.1_rc2 )
 	elibc_FreeBSD? ( sys-freebsd/freebsd-bin )
 	elibc_glibc? ( >=sys-apps/sandbox-2.2 )
 	elibc_uclibc? ( >=sys-apps/sandbox-2.2 )
@@ -71,7 +71,7 @@ compatible_python_is_selected() {
 
 src_unpack() {
 	unpack ${A}
-	mv "${WORKDIR}/${GITHUB_USER}-${PN}-funtoo"-??????? "${S}" || die
+	mv "${WORKDIR}/${GITHUB_USER}-${PN}-cb"-??????? "${S}" || die
 }
 
 pkg_setup() {
@@ -283,6 +283,8 @@ src_install() {
 
 	dodir /etc/portage
 	keepdir /etc/portage
+
+	exeinto ${portage_base}/bin
 }
 
 pkg_preinst() {
@@ -316,6 +318,8 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
+	
+
 	# Compile all source files recursively. Any orphans
 	# will be identified and removed in postrm.
 	python_mod_optimize /usr/$(get_libdir)/portage/pym
@@ -360,14 +364,6 @@ pkg_postinst() {
 	einfo "For help with using portage please consult the Gentoo Handbook"
 	einfo "at http://www.gentoo.org/doc/en/handbook/handbook-x86.xml?part=3"
 	einfo
-
-	if [ $MINOR_UPGRADE = 0 ] ; then
-		elog "If you're upgrading from a pre-2.2 version of portage you might"
-		elog "want to remerge world (emerge -e world) to take full advantage"
-		elog "of some of the new features in 2.2."
-		elog "This is not required however for portage to function properly."
-		elog
-	fi
 
 	if [ -z "${PV/*_alpha*}" ]; then
 		elog "If you always want to use the latest development version of portage"
