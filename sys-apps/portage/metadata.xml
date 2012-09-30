@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>funtoo</herd>
+	<herd>clickbeetle</herd>
 	<upstream>
-		<bugs-to>mailto:funtoo-dev@groups.google.com</bugs-to>
-		<changelog>https://github.com/funtoo/portage-funtoo/commits/master</changelog>
+		<bugs-to>mailto:cd-linux-dev@clickbeetle.in</bugs-to>
+		<changelog>https://github.com/clickbeetle/portage-cd/commits/master</changelog>
 	</upstream>
+	<maintainer><email>shrinidhi@clickbeetle.in</email></maintainer>
 	<maintainer><email>drobbins@funtoo.org</email></maintainer>
 	<maintainer><email>dev-portage@gentoo.org</email></maintainer>
 	<maintainer><email>zmedico@gentoo.org</email></maintainer>

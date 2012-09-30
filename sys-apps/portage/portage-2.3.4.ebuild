@@ -12,7 +12,7 @@ KEYWORDS="*"
 SLOT="0"
 IUSE="build doc epydoc +ipc linguas_pl python2 python3 selinux"
 GITHUB_REPO="portage-cb"
-GITHUB_USER="cb"
+GITHUB_USER="clickbeetle"
 GITHUB_TAG="cb-${PVR}"
 RESTRICT="mirror"
 
