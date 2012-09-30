@@ -60,7 +60,7 @@ INPUT_DEVICES="keyboard mouse evdev"
 # 2006/08/18 - Donnie Berkholz <dberkholz@gentoo.org>
 # Lowest common denominator defaults for video drivers,
 # except hppa, which lacks v4l so removes it in the hppa profile
-VIDEO_CARDS="dummy fbdev v4l"
+VIDEO_CARDS="dummy fbdev v4l vmware"
 
 # 2008/07/09 - Doug Goldstein <cardoe@gentoo.org>
 # Adding LDFLAGS="-Wl,-O1 for all Linux profiles by default
