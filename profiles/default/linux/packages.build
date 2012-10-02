@@ -11,11 +11,13 @@
 app-arch/bzip2
 app-arch/xz-utils
 app-arch/gzip
+app-arch/xz-utils
 app-arch/tar
 dev-util/yacc
 app-shells/bash
 net-misc/rsync
 dev-libs/openssl
+dev-libs/mpc
 net-misc/wget
 sys-devel/autoconf
 sys-devel/automake

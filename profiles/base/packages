@@ -72,6 +72,7 @@
 *sys-fs/e2fsprogs
 *sys-libs/ncurses
 *sys-libs/readline
+*dev-libs/mpc
 *sys-libs/zlib
 *virtual/dev-manager
 *virtual/init
