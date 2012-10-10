@@ -406,3 +406,5 @@ app-emulation/wine
 media-video/recordmydesktop
 media-video/qt-recordmydesktop
 
+#Emulation 
+app-emulation/qemu-kvm
