@@ -12,7 +12,11 @@ else:
   cwd = os.getcwd()
   
 eBuildList = []
-ebFile = open(cwd +"/cb_cpl."+ branch,"r")
+
+if(os.path.exists(cwd +"/cb_cpl."+ branch +"_onetime")):
+  ebFile = open(cwd +"/cb_cpl."+ branch +"_onetime","r")
+else:
+  ebFile = open(cwd +"/cb_cpl."+ branch,"r")
 for ebl in ebFile.readlines():
   if(ebl):
     if(ebl.find("#") == 0):
