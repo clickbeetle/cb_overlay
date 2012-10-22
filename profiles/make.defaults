@@ -1,4 +1,5 @@
 USE_EXPAND="PYTHON_ABIS"
 PYTHON_ABIS="2.7 3.2"
 SYNC="git://github.com/clickbeetle/cb_ports.git"
+FEATURES="mini-manifest"
 
