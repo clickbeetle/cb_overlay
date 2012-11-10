@@ -407,4 +407,7 @@ media-video/recordmydesktop
 media-video/qt-recordmydesktop
 
 #Emulation 
-app-emulation/qemu-kvm
+app-emulation/qemu
+
+#Make human
+media-gfx/makehuman
