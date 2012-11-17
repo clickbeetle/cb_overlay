@@ -34,5 +34,5 @@ sys-devel/gcc:4.7
 >sys-libs/glibc-2.16
 sys-fs/udisks:2
 >=sys-devel/automake-1.12
-
+>=net-libs/gnutls-3.1.3
 

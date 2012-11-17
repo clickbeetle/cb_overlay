@@ -26,5 +26,5 @@ sys-apps/openrc ~*
 net-misc/wget ~*
 sys-apps/man-db ~*
 dev-libs/libpipeline ~*
-
+net-libs/gnutls ~*
 dev-libs/mpc ~*
