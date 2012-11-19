@@ -411,3 +411,8 @@ app-emulation/qemu
 
 #Make human
 media-gfx/makehuman
+
+# virtual box
+app-emulation/virtualbox-modules
+app-emulation/virtualbox
+
