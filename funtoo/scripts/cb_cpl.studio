@@ -415,4 +415,7 @@ media-gfx/makehuman
 # virtual box
 app-emulation/virtualbox-modules
 app-emulation/virtualbox
+app-emulation/virtualbox-additions
+app-emulation/virtualbox-extpack-oracle
+dev-util/kbuild
 
