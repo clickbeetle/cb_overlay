@@ -26,10 +26,10 @@ if not os.path.exists("/usr/bin/svn"):
     sys.exit(1)
 progress_overlay = SvnTree("progress", "https://gentoo-progress.googlecode.com/svn/overlays/progress")
 steps.extend((
-    SyncFiles(progress_overlay.root, {
-        "profiles/package.mask":"profiles/package.mask/progress",
-        "profiles/use.mask":"profiles/use.mask/progress"
-    }),
+    #SyncFiles(progress_overlay.root, {
+        #"profiles/package.mask":"profiles/package.mask/progress",
+        #"profiles/use.mask":"profiles/use.mask/progress"
+    #}),
     SyncDir(cb_overlay.root,"profiles","profiles", exclude=["repo_name","categories"]),
     ProfileDepFix(),
     #SyncDir(cb_overlay.root,"licenses"),
