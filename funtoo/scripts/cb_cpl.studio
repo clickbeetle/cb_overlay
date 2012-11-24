@@ -1,6 +1,7 @@
 sys-apps/portage
 app-portage/portage-utils
 app-admin/eselect
+dev-lang/python
 
 # kde updates added by shrinidhi@clickbeetle.in
 kde-base/kdeplasma-addons
