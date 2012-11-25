@@ -9,12 +9,13 @@
 #samba 3.6 fails 
 >=net-print/cups-1.6.1
 
->=dev-lang/python-3.2.4:3.2
->=dev-lang/python-2.7.4:2.7
+dev-lang/python:3.4
+dev-lang/python:3.0
+dev-lang/python:3.1
 >=sys-kernel/gentoo-sources-3.1.10
 =dev-lang/python-2.7.4_pre*
 =dev-lang/python-3.2.4_pre*
-=dev-lang/python-3.3_pre*
+=dev-lang/python-3.3.1_pre*
 
 # Adding man so that man-db is emerged
 sys-apps/man
