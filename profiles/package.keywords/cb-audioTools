@@ -1,0 +1,8 @@
+media-sound/pulseaudio ~*
+media-plugins/alsa-plugins ~*
+media-sound/alsa-utils ~*
+media-libs/alsa-lib ~*
+media-sound/alsa-headers ~*
+media-libs/webrtc-audio-processing ~*
+media-sound/ardour ~*
+media-libs/aubio ~*
