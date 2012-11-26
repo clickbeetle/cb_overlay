@@ -6,7 +6,7 @@ gentoo_src = Tree("gentoo","gentoo.org", "git://github.com/clickbeetle/cb_gentoo
 cb_overlay = Tree("cb-overlay", branch, "git://github.com/clickbeetle/cb_overlay.git", pull=True)
 foo_overlay = Tree("foo-overlay", "master", "https://github.com/slashbeast/foo-overlay.git", pull=True)
 bar_overlay = Tree("bar-overlay", "master", "git://github.com/adessemond/bar-overlay.git", pull=True)
-flora_overlay = Tree("flora", "master", "git://github.com/funtoo/flora.git", pull=True)
+#flora_overlay = Tree("flora", "master", "git://github.com/funtoo/flora.git", pull=True)
 
 steps = [
   SyncTree(gentoo_src,exclude=["/metadata/cache/**","ChangeLog", "dev-util/metro"]),
@@ -17,7 +17,7 @@ steps = [
   
   InsertEbuilds(foo_overlay, select="all", skip=None, replace=["app-shells/rssh","net-misc/unison"]),
   InsertEbuilds(bar_overlay, select="all", skip=None, replace=True),
-  InsertEbuilds(flora_overlay, select="all", skip=None, replace=False)
+#  InsertEbuilds(flora_overlay, select="all", skip=None, replace=False)
 ]
 
 # Progress overlay merge
