@@ -21,10 +21,10 @@ steps = [
 ]
 
 # Progress overlay merge
-if not os.path.exists("/usr/bin/svn"):
-    print("svn binary not found at /usr/bin/svn. Exiting.")
-    sys.exit(1)
-progress_overlay = SvnTree("progress", "https://gentoo-progress.googlecode.com/svn/overlays/progress")
+#if not os.path.exists("/usr/bin/svn"):
+    #print("svn binary not found at /usr/bin/svn. Exiting.")
+    #sys.exit(1)
+#progress_overlay = SvnTree("progress", "https://gentoo-progress.googlecode.com/svn/overlays/progress")
 steps.extend((
     #SyncFiles(progress_overlay.root, {
         #"profiles/package.mask":"profiles/package.mask/progress",
@@ -33,12 +33,12 @@ steps.extend((
     SyncDir(cb_overlay.root,"profiles","profiles", exclude=["repo_name","categories"]),
     ProfileDepFix(),
     #SyncDir(cb_overlay.root,"licenses"),
-    SyncDir(progress_overlay.root, "eclass"),
+    #SyncDir(progress_overlay.root, "eclass"),
     
     SyncDir(cb_overlay.root,"eclass"),
     SyncDir(cb_overlay.root,"metadata"),
     InsertEbuilds(cb_overlay, select="all", skip=None, replace=True),
-    InsertEbuilds(progress_overlay, select="all", skip=None, replace=True, merge=["dev-lang/python", "dev-libs/boost", "dev-python/psycopg", "dev-python/pysqlite", "dev-python/python-docs", "dev-python/simpletal", "dev-python/wxpython", "x11-libs/vte"])
+    #InsertEbuilds(progress_overlay, select="all", skip=None, replace=True, merge=["dev-lang/python", "dev-libs/boost", "dev-python/psycopg", "dev-python/pysqlite", "dev-python/python-docs", "dev-python/simpletal", "dev-python/wxpython", "x11-libs/vte"])
 ))
 
 steps.extend((
