@@ -1,6 +1,0 @@
-sys-kernel/module-rebuild ~*
-sys-apps/lshw ~*
-sys-apps/hwinfo ~*
-app-admin/eclean-kernel ~*
-dev-python/pymountboot ~*
-dev-python/python-exec ~*

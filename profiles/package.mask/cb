@@ -23,8 +23,8 @@ sys-apps/man
 
 # Added by shrinidhi rao <shrinidhi@clickbeetle.in>
 # fails for a few packages 
->=dev-libs/boost-1.51
->=dev-util/boost-build-1.51
+#>=dev-libs/boost-1.51
+#>=dev-util/boost-build-1.51
 
 # ANY TOOLCHAIN RELATED MASKS GO HERE 
 # note: this should be always the last section
