@@ -32,7 +32,7 @@ steps.extend((
     }),
     SyncDir(cb_overlay.root,"profiles","profiles", exclude=["repo_name","categories"]),
     ProfileDepFix(),
-    #SyncDir(cb_overlay.root,"licenses"),
+    SyncDir(cb_overlay.root,"licenses"),
     SyncDir(progress_overlay.root, "eclass"),
     
     SyncDir(cb_overlay.root,"eclass"),
