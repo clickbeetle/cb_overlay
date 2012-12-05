@@ -10,7 +10,6 @@ DESCRIPTION="Software for the modelling of 3D humanoid characters."
 HOMEPAGE="http://www.makehuman.org/"
 SRC_URI=""
 ESVN_REPO_URI="http://makehuman.googlecode.com/svn/releases/makehuman_1_0_0_alpha7/"
-ESVN_PATCHES="${files}/Makefile.Linux.patch"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -35,7 +34,7 @@ src_prepare() {
 }
 
 src_compile() {
-	make -f Makefile.Linux
+	scons	
 }
 
 src_install() {
