@@ -28,6 +28,7 @@ sys-apps/man
 
 # ANY TOOLCHAIN RELATED MASKS GO HERE 
 # note: this should be always the last section
+>virtual/udev
 >=sys-fs/udev-182
 sys-devel/gcc:4.7
 >=sys-kernel/linux-headers-3.5
