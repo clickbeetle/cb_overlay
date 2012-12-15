@@ -3,6 +3,7 @@
 
 #add the latest one on the top
 
+>=dev-lang/php-5.5.0_alpha1
 >=x11-base/xorg-server-1.12.99.903
 =net-fs/samba-4.0.0*
 
