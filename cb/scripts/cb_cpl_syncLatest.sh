@@ -5,7 +5,7 @@ if [ ! $1 ]; then
 fi
 
 echo "updating branch $1"
-cd /BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports_locked/
+cd /BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports_lts/
 git pull
 if [ $? != 0 ]; then 
   echo "error on branch $1"
@@ -25,8 +25,8 @@ if [ $? != 0 ]; then
   echo "error on branch $1"
   exit 1
 fi
-cd /BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports_locked/
-rsync -av /BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports/ /BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports_locked/ --exclude=.git --delete
+cd /BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports_lts/
+rsync -av /BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports/ /BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports_lts/ --exclude=.git --delete
 git add .
 git commit -a -m "updates for $1 branch :)"
 git push -u origin $1

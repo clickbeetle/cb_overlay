@@ -25,10 +25,10 @@ for ebl in ebFile.readlines():
 
 if(len(eBuildList) > 0):
   cb_ports = Tree("cb-ports","master", "git://github.com/clickbeetle/cb_ports.git", pull=True, trylocal="/BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports")
-  cb_ports_locked = Tree("cbl",branch, "git@github.com:clickbeetle/cb_ports_locked.git", pull=True)
+  cb_ports_lts = Tree("cbl",branch, "git@github.com:clickbeetle/cb_ports_lts.git", pull=True)
 
   steps = [
-    SyncTree(cb_ports_locked),
+    SyncTree(cb_ports_lts),
     ProfileDepFix(),
     SyncDir(cb_ports.root,"licenses"),
     SyncDir(cb_ports.root,"eclass"),

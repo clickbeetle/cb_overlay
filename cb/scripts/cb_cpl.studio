@@ -369,7 +369,6 @@ media-gfx/darktable
 
 # qt-* packages
 dev-util/qt-creator
-media-video/qt-recordmydesktop
 x11-libs/qt-assistant
 x11-libs/qt-bearer
 x11-libs/qt-core

@@ -15,9 +15,9 @@ if [ ! -d /BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports/ ]; then
 	git clone git@github.com:clickbeetle/cb_ports.git
 fi
 
-if [ ! -d /BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports_locked/ ]; then
-	echo "cloning cb_ports_locked"
-	git clone git@github.com:clickbeetle/cb_ports_locked.git
+if [ ! -d /BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_ports_lts/ ]; then
+	echo "cloning cb_ports_lts"
+	git clone git@github.com:clickbeetle/cb_ports_lts.git
 fi
 
 if [ ! -d /BACKUP/clickbeetleCook.DO_NO_DELETE/git/cb_gentoo/ ]; then
