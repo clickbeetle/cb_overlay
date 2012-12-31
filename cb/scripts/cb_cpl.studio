@@ -418,3 +418,6 @@ app-emulation/virtualbox-additions
 app-emulation/virtualbox-extpack-oracle
 dev-util/kbuild
 
+net-im/psi
+net-im/psimedia
+
