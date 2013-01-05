@@ -8,9 +8,7 @@ inherit eutils pam
 
 DESCRIPTION="PAM base configuration files"
 HOMEPAGE="http://www.gentoo.org/proj/en/base/pam/"
-SRC_URI="http://dev.gentoo.org/~flameeyes/${PN}/${P}.tar.bz2
-	http://dev.gentoo.org/~phajdan.jr/${PN}/${P}.tar.bz2"
-
+SRC_URI="http://github.com/clickbeetle/cb-pambase/archive/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="debug cracklib passwdqc consolekit gnome-keyring selinux mktemp pam_ssh +sha512 pam_krb5 minimal ldaplogin"
