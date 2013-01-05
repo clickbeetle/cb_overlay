@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-auth/pambase/pambase-20120417.ebuild,v 1.1 2012/04/17 08:34:51 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-auth/pambase/pambase-20150417.ebuild,v 1.1 2012/04/17 08:34:51 phajdan.jr Exp $
 
 EAPI=4
 
@@ -41,7 +41,8 @@ RDEPEND="
 	!<sys-libs/pam-0.99.9.0-r1"
 DEPEND="app-portage/portage-utils"
 
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
+S="${WORKDIR}/cb-pambase-${P}"
 src_compile() {
 	local implementation=
 	local linux_pam_version=
