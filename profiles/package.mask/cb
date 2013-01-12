@@ -3,8 +3,11 @@
 
 #add the latest one on the top
 
-#icu >50 fails a lot of packages
+#icu >50 fails a lot of packages (eg libreoffice)
 >=dev-libs/icu-50.1.1
+
+#gmp > 5.1 failes ppl needed for chromium
+>=dev-libs/gmp-5.1.0
 
 #filezilla >3.6.0 depends on gnutls >3 which breaks a lot of packages
 >=net-ftp/filezilla-3.6.0
