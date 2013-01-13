@@ -18,6 +18,7 @@ DEPEND=""
 RDEPEND="${DEPEND}"
 
 src_install() {
-	install -d /opt/spark
-	tar -xvf $DISTDIR/spark_2_6_3.tar.gz -C /opt/spark/
+	tar -xvf $DISTDIR/spark_2_6_3.tar.gz -C /opt/
+	chmod 777 /opt/Spark -R
+	cp -v $FILESDIR/spark /usr/local/bin/
 }
