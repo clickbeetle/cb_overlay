@@ -20,5 +20,5 @@ RDEPEND="${DEPEND}"
 src_install() {
 	tar -xvf $DISTDIR/spark_2_6_3.tar.gz -C /opt/
 	chmod 777 /opt/Spark -R
-	cp -v $FILESDIR/spark /usr/local/bin/
+	dobin $FILESDIR/spark
 }
