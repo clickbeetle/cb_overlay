@@ -38,7 +38,7 @@ sys-apps/man
 
 # ANY TOOLCHAIN RELATED MASKS GO HERE 
 # note: this should be always the last section
->virtual/udev-171
+#>virtual/udev-171
 #>=sys-fs/udev-182
 sys-fs/udev
 sys-devel/gcc:4.7
