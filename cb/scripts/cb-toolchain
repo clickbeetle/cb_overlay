@@ -16,7 +16,7 @@ sys-apps/grep:2.14
 app-arch/gzip:1.5
 sys-devel/m4:1.4.16
 sys-devel/make:3.82
-patch-2.7.1.ebuild:2.6.1
+sys-devel/patch:2.6.1
 dev-lang/perl:5.16.1
 sys-apps/sed:4.2.1
 app-arch/tar:1.26
