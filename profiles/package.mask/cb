@@ -40,7 +40,7 @@ sys-apps/man
 # note: this should be always the last section
 #>virtual/udev-171
 #>=sys-fs/udev-182
-sys-fs/udev
+#sys-fs/udev
 sys-devel/gcc:4.7
 >=sys-kernel/linux-headers-3.5
 sys-fs/udisks:2
