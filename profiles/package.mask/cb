@@ -43,7 +43,9 @@ sys-apps/man
 #sys-fs/udev
 sys-devel/gcc:4.7
 >=sys-kernel/linux-headers-3.5
-sys-fs/udisks:2
+
+#commenting since kde 4.10 requries udisk2
+#sys-fs/udisks:2
 
 #fucking thing pulls in udev 196 :(
 #>sys-fs/udisks-1.0.4-r3
