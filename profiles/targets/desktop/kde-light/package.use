@@ -7,3 +7,6 @@
 # See, http://bugs.gentoo.org/show_bug.cgi?id=291996
 dev-python/PyQt4 sql webkit
 app-office/akonadi-server -mysql sqlite -postgres
+x11-libs/libdrm libkms
+virtual/udev gudev hwdb
+media-libs/mesa -xorg

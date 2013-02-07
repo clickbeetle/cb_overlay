@@ -38,15 +38,19 @@ sys-apps/man
 
 # ANY TOOLCHAIN RELATED MASKS GO HERE 
 # note: this should be always the last section
->virtual/udev-171
->=sys-fs/udev-182
+#>virtual/udev-171
+#>=sys-fs/udev-182
+#sys-fs/udev
 sys-devel/gcc:4.7
 >=sys-kernel/linux-headers-3.5
 sys-fs/udisks:2
->sys-fs/udisks-1.0.4-r3
+
+#fucking thing pulls in udev 196 :(
+#>sys-fs/udisks-1.0.4-r3
+
 >=sys-devel/automake-1.12
 >=net-libs/gnutls-3.1.3
 dev-scheme/guile:2
 >=dev-lang/lua-5.2.0
->=sys-auth/polkit-0.108
+#>=sys-auth/polkit-0.108
 
