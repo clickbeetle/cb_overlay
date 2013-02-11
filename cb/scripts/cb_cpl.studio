@@ -336,6 +336,7 @@ sys-fs/aufs3
 virtual/udev
 sys-fs/udev
 sys-apps/kmod
+sys-fs/udev-init-scripts
 
 #chromium and its deps
 www-client/chromium
