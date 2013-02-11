@@ -455,4 +455,7 @@ dev-util/kbuild
 
 net-im/psi
 net-im/psimedia
+ 
+# note taking
+kde-misc/basket
 
