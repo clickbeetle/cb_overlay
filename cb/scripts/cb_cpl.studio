@@ -333,6 +333,9 @@ app-admin/eclean-kernel
 dev-python/pymountboot
 sys-apps/hwids
 sys-fs/aufs3
+virtual/udev
+sys-fs/udev
+sys-apps/kmod
 
 #chromium and its deps
 www-client/chromium
