@@ -301,6 +301,17 @@ app-office/akonadi-server
 dev-libs/shared-desktop-ontologies
 dev-libs/soprano
 
+# kde color management
+kde-misc/kolor-manager
+media-libs/oyranos
+media-libs/libXcm
+x11-misc/xcalib
+media-libs/lcms
+media-gfx/graphviz
+media-libs/libraw
+app-admin/elektra
+media-libs/icc-profiles-openicc
+
 
 virtual/pkgconfig
 media-plugins/kipi-plugins
