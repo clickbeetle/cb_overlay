@@ -385,6 +385,16 @@ media-gfx/luminance-hdr
 media-gfx/autopano-sift-C
 media-gfx/enblend
 media-libs/libpano13
+media-gfx/digikam
+media-libs/jasper
+media-libs/lcms
+media-libs/lensfun
+media-libs/libkface
+media-libs/libkgeomap
+media-libs/liblqr
+media-libs/libpgf
+media-libs/libpng
+media-libs/tiff
 
 
 #Raw photo editing
