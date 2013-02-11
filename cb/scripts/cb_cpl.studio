@@ -401,6 +401,8 @@ media-libs/tiff
 media-libs/libiptcdata
 media-gfx/rawtherapee
 media-gfx/darktable
+media-libs/opencolorio
+media-libs/openimageio
 
 # qt-* packages
 dev-util/qt-creator
