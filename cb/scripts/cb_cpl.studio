@@ -458,7 +458,10 @@ dev-util/kbuild
 net-im/psi
 net-im/psimedia
  
-# note taking
-kde-misc/zanshin
+# organizer
+dev-libs/libtar
+dev-libs/libgringotts
+gnome-extra/gtkhtml
+app-office/osmo
 
 
