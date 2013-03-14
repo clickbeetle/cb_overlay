@@ -70,15 +70,15 @@ for gentoo_mask in gentoo_masks:
       if(cb_mask):
         pkgName = cb_mask[0] +"/"+ cb_mask[1]
         os.system("sed -i \'/"+ cb_mask[0] +"\\/"+ cb_mask[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.mask/" + gentoo_mask.split("/")[-1])
-progress_masks = glob.glob(progress_overlay.root.rstrip("/") + "/profiles/package.mask/*")
-for progress_mask in progress_masks:
-  os.system("rsync -av --delete-after "+ progress_mask +" "+ work.root.rstrip("/") +"/profiles/package.mask/")
-  if(len(cb_masks) > 0):
-    print cb_masks
-    for cb_mask in cb_masks:
-      if(cb_mask):
-        pkgName = cb_mask[0] +"/"+ cb_mask[1]
-        os.system("sed -i \'/"+ cb_mask[0] +"\\/"+ cb_mask[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.mask/" + progress_mask.split("/")[-1])
+#progress_masks = glob.glob(progress_overlay.root.rstrip("/") + "/profiles/package.mask/*")
+#for progress_mask in progress_masks:
+  #os.system("rsync -av --delete-after "+ progress_mask +" "+ work.root.rstrip("/") +"/profiles/package.mask/")
+  #if(len(cb_masks) > 0):
+    #print cb_masks
+    #for cb_mask in cb_masks:
+      #if(cb_mask):
+        #pkgName = cb_mask[0] +"/"+ cb_mask[1]
+        #os.system("sed -i \'/"+ cb_mask[0] +"\\/"+ cb_mask[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.mask/" + progress_mask.split("/")[-1])
     
 
 cb_unmasks_Full = open(cb_overlay.root.rstrip("/") + "/profiles/package.unmask/cb","r").readlines()
@@ -97,14 +97,14 @@ for gentoo_unmask in gentoo_unmasks:
       if(cb_unmask):
         pkgName = cb_unmask[0] +"/"+ cb_unmask[1]
         os.system("sed -i \'/"+ cb_unmask[0] +"\\/"+ cb_unmask[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.unmask/" + gentoo_unmask.split("/")[-1])
-progress_unmasks = glob.glob(progress_overlay.root.rstrip("/") + "/profiles/package.unmask/*")
-for progress_unmask in progress_unmasks:
-  os.system("rsync -av --delete-after "+ progress_unmask +" "+ work.root.rstrip("/") +"/profiles/package.unmask/")
-  if(len(cb_unmasks) > 0):
-    for cb_unmask in cb_unmasks:
-      if(cb_unmask):
-        pkgName = cb_unmask[0] +"/"+ cb_unmask[1]
-        os.system("sed -i \'/"+ cb_unmask[0] +"\\/"+ cb_unmask[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.unmask/" + progress_unmask.split("/")[-1])
+#progress_unmasks = glob.glob(progress_overlay.root.rstrip("/") + "/profiles/package.unmask/*")
+#for progress_unmask in progress_unmasks:
+  #os.system("rsync -av --delete-after "+ progress_unmask +" "+ work.root.rstrip("/") +"/profiles/package.unmask/")
+  #if(len(cb_unmasks) > 0):
+    #for cb_unmask in cb_unmasks:
+      #if(cb_unmask):
+        #pkgName = cb_unmask[0] +"/"+ cb_unmask[1]
+        #os.system("sed -i \'/"+ cb_unmask[0] +"\\/"+ cb_unmask[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.unmask/" + progress_unmask.split("/")[-1])
         
     
     
@@ -125,32 +125,32 @@ for gentoo_use in gentoo_uses:
       if(cb_use):
         pkgName = cb_use[0] +"/"+ cb_use[1]
         os.system("sed -i \'/"+ cb_use[0] +"\\/"+ cb_use[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.use/" + gentoo_use.split("/")[-1])
-progress_uses = glob.glob(progress_overlay.root.rstrip("/") + "/profiles/package.use/*")
-for progress_use in progress_uses:
-  os.system("rsync -av --delete-after "+ progress_use +" "+ work.root.rstrip("/") +"/profiles/package.use/")
-  if(len(cb_uses) > 0):
-    for cb_use in cb_uses:
-      if(cb_use):
-        pkgName = cb_use[0] +"/"+ cb_use[1]
-        os.system("sed -i \'/"+ cb_use[0] +"\\/"+ cb_use[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.use/" + progress_use.split("/")[-1])
+#progress_uses = glob.glob(progress_overlay.root.rstrip("/") + "/profiles/package.use/*")
+#for progress_use in progress_uses:
+  #os.system("rsync -av --delete-after "+ progress_use +" "+ work.root.rstrip("/") +"/profiles/package.use/")
+  #if(len(cb_uses) > 0):
+    #for cb_use in cb_uses:
+      #if(cb_use):
+        #pkgName = cb_use[0] +"/"+ cb_use[1]
+        #os.system("sed -i \'/"+ cb_use[0] +"\\/"+ cb_use[1] +"/d\' "+ work.root.rstrip("/") +"/profiles/package.use/" + progress_use.split("/")[-1])
 
 
 cb_use_desc = cb_overlay.root.rstrip("/") + "/profiles/use.desc"
 gentoo_use_desc = gentoo_src.root.rstrip("/") + "/profiles/use.desc"
-progress_use_desc = progress_overlay.root.rstrip("/") + "/profiles/use.desc"
+#progress_use_desc = progress_overlay.root.rstrip("/") + "/profiles/use.desc"
 work_use_desc = work.root.rstrip("/") +"/profiles/use.desc"
 os.system("cat "+ cb_use_desc +" | grep -iv ^# > "+ work_use_desc)
 os.system("cat "+ gentoo_use_desc +" | grep -iv ^# >> "+ work_use_desc)
-os.system("cat "+ progress_use_desc +" | grep -iv ^# >> "+ work_use_desc)
+#os.system("cat "+ progress_use_desc +" | grep -iv ^# >> "+ work_use_desc)
 os.system("sort "+ work_use_desc +" -o "+ work_use_desc)
 
 cb_local_use_desc = cb_overlay.root.rstrip("/") + "/profiles/use.local.desc"
 gentoo_local_use_desc = gentoo_src.root.rstrip("/") + "/profiles/use.local.desc"
-progress_local_use_desc = progress_overlay.root.rstrip("/") + "/profiles/use.local.desc"
+#progress_local_use_desc = progress_overlay.root.rstrip("/") + "/profiles/use.local.desc"
 work_local_use_desc = work.root.rstrip("/") +"/profiles/use.local.desc"
 os.system("cat "+ cb_local_use_desc +" | grep -iv ^# > "+ work_local_use_desc)
 os.system("cat "+ gentoo_local_use_desc +" | grep -iv ^# >> "+ work_local_use_desc)
-os.system("cat "+ progress_local_use_desc +" | grep -iv ^# >> "+ work_local_use_desc)
+#os.system("cat "+ progress_local_use_desc +" | grep -iv ^# >> "+ work_local_use_desc)
 os.system("sort "+ work_local_use_desc +" -o "+ work_local_use_desc)
 
 
