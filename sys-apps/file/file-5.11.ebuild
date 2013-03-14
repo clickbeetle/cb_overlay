@@ -1,14 +1,13 @@
-# Copyright owners: Gentoo Foundation
-#                   Arfrever Frehtes Taifersar Arahesis
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/file/file-5.11.ebuild,v 1.9 2012/09/19 18:34:25 vapier Exp $
 
-EAPI="4-python"
-PYTHON_DEPEND="python? ( <<>> )"
-PYTHON_MULTIPLE_ABIS="1"
-# http://bugs.jython.org/issue1916
-PYTHON_RESTRICTED_ABIS="*-jython"
+EAPI="2"
+PYTHON_DEPEND="python? *"
+SUPPORT_PYTHON_ABIS="1"
+RESTRICT_PYTHON_ABIS="*-jython"
 
-inherit distutils eutils libtool toolchain-funcs
+inherit eutils distutils libtool toolchain-funcs
 
 DESCRIPTION="identify a file's format by scanning binary data for patterns"
 HOMEPAGE="ftp://ftp.astron.com/pub/file/"
@@ -17,23 +16,13 @@ SRC_URI="ftp://ftp.astron.com/pub/file/${P}.tar.gz
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
 IUSE="python static-libs zlib"
 
 RDEPEND="zlib? ( sys-libs/zlib )"
 DEPEND="${RDEPEND}"
 
-PYTHON_MODULES="magic.py"
-
-if [[ "${EAPI}" == "4-python" ]]; then
-	usex() { use "$1" && echo "${2-yes}$4" || echo "${3-no}$5" ; }
-else
-	die "Compatibility code not deleted"
-fi
-
-pkg_setup() {
-	use python && python_pkg_setup
-}
+PYTHON_MODNAME="magic.py"
 
 src_prepare() {
 	elibtoolize
@@ -76,7 +65,7 @@ src_configure() {
 }
 
 do_make() {
-	emake -C "$(wd)" "$@"
+	emake -C "$(wd)" "$@" || die
 }
 src_compile() {
 	if tc-is-cross-compiler && ! ROOT=/ has_version ~${CATEGORY}/${P} ; then
@@ -89,11 +78,11 @@ src_compile() {
 }
 
 src_install() {
-	do_make DESTDIR="${D}" install
+	do_make DESTDIR="${D}" install || die
 	dodoc ChangeLog MAINT README
 
 	use python && cd python && distutils_src_install
-	use static-libs || rm -f "${ED}"/usr/lib*/libmagic.la
+	use static-libs || rm -f "${D}"/usr/lib*/libmagic.la
 }
 
 pkg_postinst() {
