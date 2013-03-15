@@ -51,19 +51,14 @@ gsl +jpeg jpeg2k +kdcraw kdepim +lcms marble mysql +okular opengtl openexr
 word-perfect xbase +xml +xslt"
 
 # please do not sort here, order is same as in CMakeLists.txt
-CAL_FTS="kexi words flow plan stage sheets krita karbon braindump"
+CAL_FTS="krita"
 for cal_ft in ${CAL_FTS}; do
 	IUSE+=" calligra_features_${cal_ft}"
 done
 unset cal_ft
 
 REQUIRED_USE="
-	calligra_features_kexi? ( calligra_features_sheets )
-	calligra_features_words? ( calligra_features_sheets )
 	calligra_features_krita? ( eigen exif lcms )
-	calligra_features_plan? ( kdepim semantic-desktop )
-	calligra_features_sheets? ( eigen )
-	test? ( calligra_features_karbon )
 "
 
 RDEPEND="
@@ -84,7 +79,7 @@ RDEPEND="
 	$(add_kdebase_dep knewstuff)
 	media-libs/libpng
 	sys-libs/zlib
-	>=x11-libs/qt-gui-4.8.1-r1:4
+	>=dev-qt/qtgui-4.8.1-r1:4
 	virtual/libiconv
 	attica? ( dev-libs/libattica )
 	crypt? ( app-crypt/qca:2 )
@@ -130,10 +125,6 @@ RDEPEND="
 	)
 	xbase? ( dev-db/xbase )
 	xslt? ( dev-libs/libxslt )
-	calligra_features_kexi? (
-		>=dev-db/sqlite-3.7.9:3[extensions]
-		dev-libs/icu
-	)
 "
 DEPEND="${RDEPEND}"
 
