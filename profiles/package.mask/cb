@@ -12,8 +12,8 @@
 #filezilla >3.6.0 depends on gnutls >3 which breaks a lot of packages
 >=net-ftp/filezilla-3.6.0
 
->=dev-lang/php-5.5.0*
-#>=x11-base/xorg-server-1.12.99.903
+>=dev-lang/php-5.5.0
+>=x11-base/xorg-server-1.14.0
 =net-fs/samba-4.0.0*
 
 #samba 3.6 fails 
