@@ -56,3 +56,7 @@ dev-scheme/guile:2
 >=dev-lang/lua-5.2.0
 #>=sys-auth/polkit-0.108
 
+# Firefox support only enterprise editions
+>=www-client/firefox-11
+>=mail-client/thunderbird-11
+
