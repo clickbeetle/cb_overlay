@@ -4,16 +4,16 @@
 #add the latest one on the top
 
 #icu >50 fails a lot of packages (eg libreoffice)
->=dev-libs/icu-50.1.1
-
+>=dev-libs/icu-50.0.0
+>=app-office/libreoffice-4.0.0.0
 #gmp > 5.1 failes ppl needed for chromium
 >=dev-libs/gmp-5.1.0
 
 #filezilla >3.6.0 depends on gnutls >3 which breaks a lot of packages
 >=net-ftp/filezilla-3.6.0
 
->=dev-lang/php-5.5.0_alpha1
->=x11-base/xorg-server-1.12.99.903
+>=dev-lang/php-5.5.0*
+#>=x11-base/xorg-server-1.12.99.903
 =net-fs/samba-4.0.0*
 
 #samba 3.6 fails 
