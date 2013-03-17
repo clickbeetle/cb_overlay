@@ -60,3 +60,5 @@ dev-scheme/guile:2
 >=www-client/firefox-11
 >=mail-client/thunderbird-11
 
+# doesnt play good with oyranos
+>=app-admin/elektra-0.8.0
