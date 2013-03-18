@@ -8,3 +8,8 @@
 *www-client/firefox
 *media-video/smplayer2
 *dev-java/oracle-jdk-bin
+*dev-qt/qtcore
+*dev-python/setproctitle
+*dev-python/psutil
+*dev-python/mysql-python
+

@@ -5,9 +5,16 @@
 # Samuli Suominen <ssuominen@gentoo.org> (16 Dec 2009)
 # Required by kde-base/kde-meta because USE kde is enabled in make.defaults here.
 # See, http://bugs.gentoo.org/show_bug.cgi?id=291996
-dev-python/PyQt4 sql webkit
+dev-python/PyQt4 sql 
 app-office/akonadi-server -mysql sqlite -postgres
-x11-libs/libdrm libkms
 virtual/udev gudev hwdb kmod
 media-libs/mesa -xorg
 media-video/vlc httpd
+
+kde-base/marble -python
+kde-base/plasma-workspace -python
+kde-base/superkaramba -python
+kde-base/kdeadmin-meta -cups
+kde-base/kdeutils-meta -cups
+dev-vcs/subversion -dso
+
