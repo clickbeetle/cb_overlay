@@ -2,4 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/profiles/targets/desktop/kde/make.defaults,v 1.4 2011/06/06 20:11:28 dilfridge Exp $
 
-USE="consolekit declarative dri kde kipi phonon plasma policykit -semantic-desktop xcomposite xinerama xscreensaver qt4 qt3support X sasl -udisks2 xattr pulseaudio alsa"
+USE="consolekit declarative dri kde kipi phonon plasma policykit -semantic-desktop xcomposite xinerama xscreensaver qt4 qt3support X xorg sasl xattr pulseaudio alsa"
+ACCEPT_LICENSE="*"
+CAMERAS="*"
+CALLIGRA_FEATURES="krita"
+SANE_BACKENDS="*"
+USE_PYTHON="2.7 3.2"
+PYTHON_TARGETS="python2_7 python3_2"
+PYTHON_SINGLE_TARGETS="python2_7"
+

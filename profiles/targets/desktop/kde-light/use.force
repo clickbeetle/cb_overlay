@@ -3,3 +3,6 @@
 # handle the consequences.
 consolekit
 policykit
+dbus
+udev
+

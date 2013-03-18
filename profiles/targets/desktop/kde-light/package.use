@@ -8,5 +8,5 @@
 dev-python/PyQt4 sql webkit
 app-office/akonadi-server -mysql sqlite -postgres
 x11-libs/libdrm libkms
-virtual/udev gudev hwdb
+virtual/udev gudev hwdb kmod
 media-libs/mesa -xorg
