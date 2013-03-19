@@ -348,7 +348,7 @@ class ProfileDepFix(MergeStep):
 
 class GenCache(MergeStep):
 	def run(self,tree):
-		runShell("egencache --update --portdir=%s --jobs=50" % tree.root, abortOnFail=False)
+		runShell("egencache --update --portdir=%s --jobs=150" % tree.root, abortOnFail=False)
 
 class GitPrep(MergeStep):
 	def __init__(self,branch):
