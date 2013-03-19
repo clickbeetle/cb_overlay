@@ -80,7 +80,7 @@ src_install() {
 	insinto /usr/share/${PN}
 	doins -r ref
 
-	udev_dorules libusb/55-Argyll.rules
+	udev_dorules usb/55-Argyll.rules
 }
 
 pkg_postinst() {
