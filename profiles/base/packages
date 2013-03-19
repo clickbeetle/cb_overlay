@@ -32,6 +32,7 @@
 *app-arch/xz-utils
 *app-editors/nano
 *app-shells/bash
+*app-text/tree
 *dev-lang/perl
 *dev-lang/python
 *net-dns/openresolv
@@ -58,6 +59,7 @@
 *sys-apps/shadow
 *sys-apps/texinfo
 *sys-apps/which
+*sys-apps/gptfdisk
 *sys-devel/autoconf
 *sys-devel/automake
 *sys-devel/binutils
