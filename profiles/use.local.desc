@@ -1,3 +1,2 @@
 sys-auth/pambase:ldaplogin - Enable pambase to install a system-auth file for easy ldap support for logins
 DELETE sys-libs/ncurses:tinfo
-DELETE net-im/vacuum:clientinfo
