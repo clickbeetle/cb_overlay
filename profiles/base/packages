@@ -24,6 +24,7 @@
 # specific information in here. This file serves as a high level description
 # of the minimum set of packages needed for any Gentoo based system.
 
+*app-misc/screen
 *net-misc/bridge-utils
 *net-dns/bind-tools
 *app-admin/eselect-vi
