@@ -144,6 +144,14 @@ os.system("cat "+ gentoo_use_desc +" | grep -iv ^# >> "+ work_use_desc)
 #os.system("cat "+ progress_use_desc +" | grep -iv ^# >> "+ work_use_desc)
 os.system("sort "+ work_use_desc +" -o "+ work_use_desc)
 
+os.system("grep DELETE "+ cb_use_desc +" | gawk '{print $2}' > /tmp/cb_use_desc.pat")
+os.system("sed -i '/^$/d' /tmp/cb_use_desc.pat")
+os.system("grep -v --file=/tmp/cb_use_desc.pat "+ work_use_desc +" > "+ work_use_desc +".revved")
+os.system("rm -fv "+ work_use_desc)
+os.system("mv "+ work_use_desc +".revved "+ work_use_desc)
+
+
+
 cb_local_use_desc = cb_overlay.root.rstrip("/") + "/profiles/use.local.desc"
 gentoo_local_use_desc = gentoo_src.root.rstrip("/") + "/profiles/use.local.desc"
 #progress_local_use_desc = progress_overlay.root.rstrip("/") + "/profiles/use.local.desc"
@@ -153,6 +161,11 @@ os.system("cat "+ gentoo_local_use_desc +" | grep -iv ^# >> "+ work_local_use_de
 #os.system("cat "+ progress_local_use_desc +" | grep -iv ^# >> "+ work_local_use_desc)
 os.system("sort "+ work_local_use_desc +" -o "+ work_local_use_desc)
 
+os.system("grep DELETE "+ cb_local_use_desc +" | gawk '{print $2}' > /tmp/cb_local_use_desc.pat")
+os.system("sed -i '/^$/d' /tmp/cb_local_use_desc.pat")
+os.system("grep -v --file=/tmp/cb_local_use_desc.pat "+ work_local_use_desc +" > "+ work_local_use_desc +".revved")
+os.system("rm -fv "+ work_local_use_desc)
+os.system("mv "+ work_local_use_desc +".revved "+ work_local_use_desc)
 
 steps = [
   GitPrep(branch),
