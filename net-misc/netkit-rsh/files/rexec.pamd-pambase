@@ -3,7 +3,7 @@
 auth       required	pam_securetty.so
 
 # Comment this and uncomment the following to restore default behaviour
-auth       sufficient   pam_rhosts.so
+#auth       sufficient   pam_rhosts.so
 #auth       include	system-remote-login
 
 account    include	system-remote-login

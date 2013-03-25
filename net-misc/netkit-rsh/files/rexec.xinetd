@@ -8,5 +8,5 @@ service exec
 	server          = /usr/sbin/in.rexecd
 	log_on_success  = PID HOST USERID EXIT DURATION
 	log_on_failure  = USERID ATTEMPT
-	disable         = yes
+	disable         = no 
 }

@@ -4,7 +4,7 @@
 auth       required	pam_securetty.so
 
 # comment this and uncomment the following to use the default
-auth       required pam_rhosts.so
+#auth       required pam_rhosts.so
 #auth       include	system-remote-login
 
 account    include	system-remote-login

@@ -8,5 +8,5 @@ service login
 	server          = /usr/sbin/in.rlogind
 	log_on_success  = PID HOST USERID EXIT DURATION
 	log_on_failure  = USERID ATTEMPT
-	disable         = yes
+	disable         = no 
 }
