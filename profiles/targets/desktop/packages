@@ -1,2 +1,6 @@
 *app-text/tree
+*app-misc/screen
+*net-misc/bridge-utils
+*net-dns/bind-tools
+
 

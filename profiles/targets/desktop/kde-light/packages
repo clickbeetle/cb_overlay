@@ -12,6 +12,8 @@
 *dev-python/setproctitle
 *dev-python/psutil
 *dev-python/mysql-python
-*kde-misc/kolor-manager
 *media-gfx/dispcalgui
+*kde-misc/colord-kde
+*media-gfx/rawtherapee
+*media-gfx/darktable
 
