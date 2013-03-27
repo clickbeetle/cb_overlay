@@ -11,4 +11,4 @@ kde-base/superkaramba -python
 kde-base/kdeadmin-meta -cups
 kde-base/kdeutils-meta -cups
 dev-vcs/subversion -dso
-
+media-libs/mlt frei0r gtk
