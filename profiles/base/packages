@@ -83,3 +83,4 @@
 *virtual/os-headers
 *virtual/package-manager
 *virtual/ssh
+*dev-util/strace
