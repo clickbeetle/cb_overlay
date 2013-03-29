@@ -14,7 +14,7 @@
 
 >=dev-lang/php-5.5.0
 >=x11-base/xorg-server-1.14.0
-=net-fs/samba-4.0.0*
+>=net-fs/samba-4.0.0
 
 #samba 3.6 fails 
 >=net-print/cups-1.6.1
