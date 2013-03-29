@@ -2,3 +2,21 @@ dev-java/icedtea
 dev-java/icedtea-bin
 dev-java/icedtea-web
 
+# use hiemdal
+app-crypt/mit-krb5 
+
+# samba 4 not yet ready for production use
+>=net-fs/samba-4.0.0
+
+# fails chromium-27
+>=app-accessibility/speech-dispatcher-0.8
+
+# fails nfs-utils 
+>=dev-libs/libevent-2.1.0
+
+# fails 
+>=dev-vcs/cvs-1.12.13
+
+# fails
+>=sys-libs/db-5.0
+
