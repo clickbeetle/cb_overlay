@@ -41,7 +41,7 @@ DEPEND="${RDEPEND}
 
 #RESTRICT="test"
 
-#CMAKE_REMOVE_MODULES_LIST="${CMAKE_REMOVE_MODULES_LIST} FindFltk FindElektra FindXcm FindCUPS"
+CMAKE_REMOVE_MODULES_LIST="${CMAKE_REMOVE_MODULES_LIST} FindFltk FindElektra FindXcm FindCUPS"
 
 src_prepare() {
 	epatch "${FILESDIR}/${P}"-buildsystem.patch
