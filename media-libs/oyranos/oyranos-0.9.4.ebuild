@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="X cairo cups doc exif fltk qt4 raw test"
 
-RDEPEND=">=app-admin/elektra-0.8.3-r1
+RDEPEND="<=app-admin/elektra-0.8.0
 	dev-libs/libxml2
 	dev-libs/yajl
 	media-gfx/exiv2
