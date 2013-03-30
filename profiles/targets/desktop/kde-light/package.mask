@@ -20,3 +20,7 @@ app-crypt/mit-krb5
 # fails
 >=sys-libs/db-5.0
 
+# anything greater than the below shit doesnt automount nfs
+>=net-fs/autofs-5.0.7
+>=net-fs/nfs-utils-1.2.4
+
