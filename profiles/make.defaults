@@ -2,5 +2,5 @@ SYNC="git://github.com/clickbeetle/cb_ports.git"
 USE_PYTHON="2.7 3.2"
 PYTHON_TARGETS="python2_7 python3_2"
 PYTHON_SINGLE_TARGETS="python2_7"
-
+ABI_X86="64 32"
 

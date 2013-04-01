@@ -15,3 +15,5 @@ media-libs/mlt frei0r gtk
 app-crypt/heimdal -ssl
 media-libs/libcanberra gtk
 net-fs/nfs-utils -uuid
+media-libs/oyranos -abi_x86_32
+
