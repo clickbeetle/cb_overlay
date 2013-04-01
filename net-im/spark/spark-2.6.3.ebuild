@@ -17,9 +17,11 @@ DEPEND=""
 
 RDEPEND="${DEPEND}"
 
+
 src_install() {
-	mkdir -p /opt/Spark
-	tar -xvf $DISTDIR/spark_2_6_3.tar.gz -C /opt/
+	dodir /opt/Spark
+	cd /opt/
+	unpack $DISTDIR/spark_2_6_3.tar.gz
 	chmod 777 /opt/Spark -R
 	dobin $FILESDIR/spark
 }
