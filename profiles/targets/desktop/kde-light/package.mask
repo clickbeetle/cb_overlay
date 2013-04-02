@@ -24,5 +24,7 @@ app-crypt/mit-krb5
 >=net-fs/autofs-5.0.7
 >=net-fs/nfs-utils-1.2.4
 
-# DispcalGui will not work with >=media-gfx/argyllcms-1.5.0 for colorhug firmware 1.8
+# DispcalGui will not work with the following for colorhug firmware 1.8
 >=media-gfx/argyllcms-1.5.0
+x11-libs/wxGTK:2.9
+dev-python/wxpython:2.9
