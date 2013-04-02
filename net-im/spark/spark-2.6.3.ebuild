@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="4"
 
 inherit eutils
 
@@ -16,12 +16,20 @@ KEYWORDS="~x86 amd64"
 DEPEND=""
 
 RDEPEND="${DEPEND}"
+S="${WORKDIR}/Spark"
 
+
+src_unpack() {
+	unpack ${A} 
+}
 
 src_install() {
 	dodir /opt/Spark
-	cd /opt/
-	unpack $DISTDIR/spark_2_6_3.tar.gz
-	chmod 777 /opt/Spark -R
-	dobin $FILESDIR/spark
+	cp -pPR $S $D/opt/ || die "Install Failed"
+	dobin ${FILESDIR}/spark
+}
+
+pkg_postinst()
+{
+    	chmod 777 /opt/Spark -Rv
 }
