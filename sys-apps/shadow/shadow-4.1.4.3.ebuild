@@ -77,7 +77,10 @@ src_install() {
 	insinto /etc
 	# Using a securetty with devfs device names added
 	# (compat names kept for non-devfs compatibility)
-	insopts -m0600 ; doins "${FILESDIR}"/securetty
+	insopts -m0600 
+	doins "${FILESDIR}"/securetty
+	doins "${FILESDIR}"/securetty.allow_rsh
+
 	if ! use pam ; then
 		insopts -m0600
 		doins etc/login.access etc/limits
