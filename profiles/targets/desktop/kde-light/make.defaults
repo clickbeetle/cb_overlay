@@ -15,14 +15,5 @@ USE="-semantic-desktop 3dnowext X acpi alsa autoipd avahi bash-completion bluray
      bazaar cvs mercurial subversion ssh openldap urandom slp cxx sse3 extras infiniband rpc nsplugin \
      tga mta dirac gmp libffi xmp keymap fuse opencl plugins"
 ACCEPT_LICENSE="*"
-CAMERAS="*"
-CALLIGRA_FEATURES="krita"
-SANE_BACKENDS="*"
 
 CONFIG_PROTECT="/usr/share/config/kdm /etc /etc/conf.d /etc/init.d /usr/share/polkit-1/actions"
-LINGUAS="en en_US af ar az bg bn br bs ca cs cy da de el en_GB eo es et eu \
-	 fa fi fr fy ga gl he hi hr hu is it ja kk \
-	 km ko lt lv mk mn ms nb nds nl nn pa pl pt pt_BR ro ru rw se sk sl \
-	 sr sr@Latn ss sv ta tg tr uk uz vi zh_CN zh_TW es_AR es_ES fy_NL ga_IE gu gu_IN nb_NO nn_NO pt_PT sv_SE zh"
-VIDEO_CARDS="intel fbdev vesa radeonhd vmware cirrus virtualbox nvidia"
-
