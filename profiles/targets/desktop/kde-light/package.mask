@@ -28,3 +28,8 @@ app-crypt/mit-krb5
 >=media-gfx/argyllcms-1.5.0
 x11-libs/wxGTK:2.9
 dev-python/wxpython:2.9
+
+# polkit-110 fails with spidermonkey >= 1.8.7
+>sys-auth/polkit-110
+>=dev-lang/spidermonkey-1.8.7
+
