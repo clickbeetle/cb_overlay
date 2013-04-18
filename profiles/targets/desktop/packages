@@ -2,5 +2,5 @@
 *app-misc/screen
 *net-misc/bridge-utils
 *net-dns/bind-tools
-
+*sys-apps/lshw
 

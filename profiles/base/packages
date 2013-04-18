@@ -41,6 +41,8 @@
 *net-misc/wget
 *sys-apps/baselayout
 *sys-apps/coreutils
+*sys-apps/lshw
+*sys-apps/hwinfo
 #*sys-apps/debianutils
 *sys-apps/diffutils
 *sys-apps/file
