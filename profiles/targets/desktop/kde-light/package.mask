@@ -9,7 +9,7 @@ app-crypt/mit-krb5
 >=net-fs/samba-4.0.0
 
 # fails chromium-27
->=app-accessibility/speech-dispatcher-0.8
+#>=app-accessibility/speech-dispatcher-0.8
 
 # fails nfs-utils 
 >=dev-libs/libevent-2.1.0
