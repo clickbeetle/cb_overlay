@@ -5,7 +5,13 @@
 
 #icu >50 fails a lot of packages (eg libreoffice)
 >=dev-libs/icu-50.0.0
-#>=app-office/libreoffice-4.0.0.0
+>=app-office/libreoffice-4.0.0.0
+
+# libreoffice-4 and gr8r fails with anything greater than boost 1.50
+>=dev-libs/boost-1.50
+>=dev-util/boost-build-1.50
+
+
 #gmp > 5.1 failes ppl needed for chromium
 >=dev-libs/gmp-5.1.0
 
