@@ -3,6 +3,10 @@
 
 #add the latest one on the top
 
+# stupid docbook fails 
+>=app-text/gnome-doc-utils-0.20.10-r1
+
+
 #icu >50 fails a lot of packages (eg libreoffice)
 >=dev-libs/icu-50.0.0
 >=app-office/libreoffice-4.0.0.0
