@@ -78,6 +78,7 @@
 *sys-libs/readline
 *dev-libs/mpc
 *sys-libs/zlib
+*sys-kernel/module-rebuild
 *virtual/dev-manager
 *virtual/init
 *virtual/libc
