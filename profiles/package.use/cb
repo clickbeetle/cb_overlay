@@ -8,4 +8,4 @@ x11-libs/cairo -cleartype lcdfilter
 media-libs/freetype -bindist -cleartype lcdfilter
 media-libs/fontconfig -cleartype lcdfilter
 x11-libs/libXft -cleartype lcdfilter
-
+sys-apps/busybox mdev livecd

@@ -18,3 +18,8 @@ net-fs/nfs-utils -uuid
 media-libs/oyranos -abi_x86_32
 sci-libs/fftw -abi_x86_32
 net-fs/cifs-utils upcall
+net-libs/glib-networking -libproxy
+sci-libs/fftw -mpi
+net-dns/avahi -gtk
+dev-libs/cyrus-sasl -openldap
+
