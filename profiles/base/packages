@@ -87,3 +87,7 @@
 *virtual/package-manager
 *virtual/ssh
 *dev-util/strace
+*app-misc/screen
+*net-misc/bridge-utils
+*net-dns/bind-tools
+
