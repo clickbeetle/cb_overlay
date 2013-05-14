@@ -66,3 +66,6 @@ dev-scheme/guile:2
 
 #genkernel goes nuts with anything greater than this shit!
 >=app-misc/pax-utils-0.5
+
+# keep this at 3.2 since 3.3 has some problems with probing a peer from 3.2 series 
+>=sys-cluster/glusterfs-3.3.0

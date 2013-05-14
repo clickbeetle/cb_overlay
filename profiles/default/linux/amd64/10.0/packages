@@ -10,3 +10,12 @@
 *sys-apps/memtester
 *sys-boot/grub
 *sys-boot/os-prober
+#for live cd
+*sys-fs/squashfs-tools
+*net-dialup/mingetty
+*app-misc/livecd-tools
+*net-nds/rpcbind
+*net-fs/autofs
+*sys-devel/gdb
+*sys-process/acct
+
