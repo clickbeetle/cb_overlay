@@ -17,3 +17,5 @@
 *net-nds/rpcbind
 *net-fs/autofs
 *sys-devel/gdb
+*sys-process/acct
+
