@@ -1,23 +1,16 @@
 *kde-base/kde-meta
 *x11-base/xorg-x11
 *x11-apps/xdm
-*sys-kernel/gentoo-sources
-*app-editors/vim
 *www-client/chromium
 *mail-client/thunderbird
 *www-client/firefox
 *media-video/smplayer2
 *dev-java/oracle-jdk-bin
 *dev-qt/qtcore
-*dev-python/setproctitle
-*dev-python/psutil
-*dev-python/mysql-python
 *media-gfx/dispcalgui
 *media-gfx/rawtherapee
 *media-gfx/darktable
 *x11-libs/fltk
-*dev-util/rpmdevtools
-*app-arch/rpm
 *x11-terms/xterm
 *media-gfx/inkscape
 *media-gfx/mypaint
@@ -30,5 +23,4 @@
 *www-plugins/adobe-flash
 *dev-db/mysql-workbench
 *net-ftp/filezilla
-*sys-cluster/glusterfs
 

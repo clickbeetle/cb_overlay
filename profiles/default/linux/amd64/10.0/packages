@@ -18,4 +18,14 @@
 *net-fs/autofs
 *sys-devel/gdb
 *sys-process/acct
+*sys-kernel/gentoo-sources
+*app-editors/vim
+*dev-python/setproctitle
+*dev-python/psutil      
+*dev-python/mysql-python
+*dev-util/rpmdevtools   
+*app-arch/rpm 
+*sys-cluster/glusterfs
+*sys-boot/grub:2
+
 
