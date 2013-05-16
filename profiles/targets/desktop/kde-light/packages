@@ -27,4 +27,7 @@
 *media-video/qt-recordmydesktop
 *media-gfx/hugin
 *media-gfx/luminance-hdr
+*kde-misc/wacomtablet
+*net-misc/nxclient
+*net-misc/nxserver-freeedition
 
