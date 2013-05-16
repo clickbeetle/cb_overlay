@@ -7,7 +7,7 @@ USE="-semantic-desktop 3dnowext X acpi alsa autoipd avahi bash-completion bluray
      gles2 glew gphoto2 gpu gstreamer icu ieee1394 jemalloc jingle jpeg jpeg2k kde kdenlive kipi \
      lapack latex lensfun libkms libsamplerate lua matroska mdnsresponder-compat melt mjpeg mmxext \
      mng mp3 mpi mpi-threads mtp networkmanager opencv opengl pdf phonon plasma png policykit \
-     postscript pulseaudio qt3support qt4 quicktime raw rdesktop samba sasl schroedinger sdl \
+     postscript pulseaudio qt3support qt4 quicktime raw rdesktop samba sasl schroedinger sdl colord \
      sdl-image sift smp sqlite ssse3 svg swfdec theora tiff twolame umfpack utils v4l video vlc vnc \
      webkit webp wmf xa xattr xcomposite xinerama  xorg xscreensaver yuv4mpeg wma-fixed taglib threads \
      ffmpeg script openexr inotify 3dnow -gnome tk tcl xinetd kernel-patch nfs ramfs suid imagemagick \
