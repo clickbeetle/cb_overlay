@@ -48,3 +48,5 @@ virtual/os-headers
 virtual/package-manager
 sys-fs/udev
 virtual/shadow
+app-portage/eix
+dev-libs/libffi
