@@ -28,5 +28,5 @@
 *app-arch/rpm 
 *sys-cluster/glusterfs
 *sys-boot/grub:2
-
+*app-cdr/cdrtools
 
