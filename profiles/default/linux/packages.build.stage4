@@ -1,4 +1,7 @@
 sys-fs/aufs3
 x11-drivers/nvidia-drivers
+sys-process/iotop
+net-analyzer/iftop
+app-emulation/virtualbox-guest-additions
 
 

@@ -30,3 +30,5 @@
 *sys-boot/grub:2
 *app-cdr/cdrtools
 *dev-python/twisted
+*sys-apps/ethtool
+*app-admin/syslog-ng
