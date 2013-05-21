@@ -33,3 +33,4 @@
 *sys-apps/ethtool
 *app-admin/syslog-ng
 *sys-apps/xinetd
+*sys-power/acpid

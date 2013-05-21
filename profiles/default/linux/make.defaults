@@ -12,7 +12,7 @@
 
 
 # Default starting set of USE flags for all default/linux profiles.
-USE="berkdb crypt ipv6 ncurses nls pam perl python readline ssl tcpd zlib xattr rpc"
+USE="berkdb crypt ipv6 ncurses nls pam perl python readline ssl tcpd zlib xattr rpc consolekit policykit dbus gudev udev"
 
 #Graphics and other formats often used in both server (cmdline) and desktop (X) applications:
 USE="${USE} gif png jpeg tiff truetype xml"
