@@ -32,3 +32,4 @@
 *dev-python/twisted
 *sys-apps/ethtool
 *app-admin/syslog-ng
+*sys-apps/xinetd
