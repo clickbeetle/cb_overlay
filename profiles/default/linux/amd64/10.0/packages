@@ -35,4 +35,4 @@
 *sys-apps/xinetd
 *sys-power/acpid
 *net-misc/networkmanager
-
+*dev-libs/libisoburn
