@@ -36,3 +36,5 @@
 *sys-power/acpid
 *net-misc/networkmanager
 *dev-libs/libisoburn
+*dev-python/pyinotify
+
