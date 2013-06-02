@@ -37,4 +37,5 @@
 *net-misc/networkmanager
 *dev-libs/libisoburn
 *dev-python/pyinotify
+*sys-fs/dosfstools
 
