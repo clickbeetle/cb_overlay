@@ -81,7 +81,7 @@ app-crypt/mit-krb5
 
 
 # polkit-110 fails with spidermonkey >= 1.8.7                          
->sys-auth/polkit-110                                                   
+#>sys-auth/polkit-110                                                   
 >=dev-lang/spidermonkey-1.8.7 
 
 # DispcalGui will not work with the following for colorhug firmware 1.8
