@@ -95,3 +95,5 @@ dev-python/wxpython:2.9
 # fails                                   
 >=sys-libs/db-5.0      
 
+# stupid shit fails a lot of x11 pkgs
+=x11-libs/libX11-1.5.99.902
