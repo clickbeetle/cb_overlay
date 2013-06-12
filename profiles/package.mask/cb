@@ -97,3 +97,6 @@ dev-python/wxpython:2.9
 
 # stupid shit fails a lot of x11 pkgs
 =x11-libs/libX11-1.5.99.902
+
+# dont know wot problem people have with adding updates incrementally rather than break the stuff .. idiots! 
+>=sys-apps/texinfo-5.0
