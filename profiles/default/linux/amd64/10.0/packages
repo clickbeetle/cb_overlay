@@ -24,8 +24,6 @@
 *dev-python/setproctitle
 *dev-python/psutil      
 *dev-python/mysql-python
-*dev-util/rpmdevtools   
-*app-arch/rpm 
 *sys-cluster/glusterfs
 *sys-boot/grub:2
 *app-cdr/cdrtools
