@@ -13,7 +13,7 @@ USE="-semantic-desktop 3dnowext X acpi alsa autoipd avahi bash-completion bluray
      ffmpeg script openexr inotify 3dnow -gnome tk tcl xinetd kernel-patch nfs ramfs suid imagemagick \
      ldaplogin fontconfig lzma openal realtime xmlpatterns thumbnail scanner syslog java xvmc git \
      bazaar cvs mercurial subversion ssh openldap urandom slp cxx sse3 extras infiniband rpc nsplugin \
-     tga mta dirac gmp libffi xmp keymap fuse opencl plugins opus gsl lm_sensors sndfile vcd musepack xvfb"
+     tga mta dirac gmp libffi xmp keymap fuse opencl plugins opus gsl lm_sensors sndfile vcd musepack xvfb ldap"
 ACCEPT_LICENSE="*"
 
 CONFIG_PROTECT="/usr/share/config/kdm /etc /etc/conf.d /etc/init.d /usr/share/polkit-1/actions"
