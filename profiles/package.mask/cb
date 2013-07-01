@@ -2,6 +2,8 @@
 # Added by shrinidhi rao <shrinidhi@clickbeetle.in>
 
 #add the latest one on the top
+>=dev-lang/tcl-8.6.0-r1
+>=dev-lang/tk-8.6.0
 
 # stupid 9999s from gentoo.
 
