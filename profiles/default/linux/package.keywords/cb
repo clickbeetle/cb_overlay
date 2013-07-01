@@ -1,6 +1,4 @@
 dev-lang/python ~*
 sys-kernel/gentoo-sources ~*
-sys-boot/grub ~*
+sys-boot/grub:2 ~*
 sys-auth/consolekit ~*
-
-

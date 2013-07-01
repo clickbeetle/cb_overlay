@@ -3,6 +3,10 @@
 
 #add the latest one on the top
 
+# stupid 9999s from gentoo.
+
+>=sys-boot/grub-9999
+
 # stupid docbook fails 
 >=app-text/gnome-doc-utils-0.20.10-r1
 
