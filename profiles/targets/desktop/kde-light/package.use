@@ -20,6 +20,6 @@ sci-libs/fftw -abi_x86_32
 net-fs/cifs-utils upcall
 net-libs/glib-networking -libproxy
 sci-libs/fftw -mpi
-net-dns/avahi -utils
+net-dns/avahi -utils -gtk
 dev-libs/cyrus-sasl -openldap
 
