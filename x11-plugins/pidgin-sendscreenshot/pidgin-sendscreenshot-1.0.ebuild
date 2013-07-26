@@ -8,7 +8,7 @@ inherit base
 
 DESCRIPTION="Pidgin plugin to capture a rectangular area of your screen and send it"
 HOMEPAGE="http://code.google.com/p/pidgin-sendscreenshot"
-SRC_URI="http://${PN}.googlecode.com/files/${P}.tar.gz"
+SRC_URI="http://distfiles.clickbeetle.in/${P}.tar"
 
 LICENSE="GPL-2"
 SLOT="0"
