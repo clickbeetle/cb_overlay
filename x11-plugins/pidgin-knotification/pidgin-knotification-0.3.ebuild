@@ -12,12 +12,12 @@ SRC_URI="http://bitbucket.org/nelchael/${PN}/get/${PV}.tar.bz2 -> ${P}.tar.bz2"
 
 LICENSE="ZLIB"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 RESTRICT="mirror"
 
 RDEPEND="net-im/pidgin
-		x11-libs/qt-dbus:4"
+		dev-qt/qtdbus:4"
 DEPEND="${RDEPEND}
 		dev-util/pkgconfig"
 
