@@ -1,5 +1,0 @@
-dev-lang/php gd
-dev-lang/python sqlite
-virtual/python-sqlite external
-sys-fs/aufs3 kernel-patch
-sys-auth/polkit -pam

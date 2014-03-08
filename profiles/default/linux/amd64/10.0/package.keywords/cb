@@ -1,9 +1,0 @@
-dev-lang/python ~*
-sys-kernel/gentoo-sources ~*
-sys-boot/grub:2 ~*
-sys-auth/consolekit ~*
-dev-lang/tk ~*
-dev-lang/tcl ~*
-dev-tcltk/blt  ~*
-
-
